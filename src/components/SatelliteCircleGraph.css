@@ -1,18 +1,20 @@
-.flex-wrapper {
+ .flex-wrapper {
     display: flex;
     flex-flow: row nowrap;
   }
   
   .single-chart {
-    width: 33%;
+    width: 17rem;
+    height: 100%;
+    background-color: #ffffff;
     justify-content: space-around ;
   }
   
-  .circular-chart {
+  .circular-chart-satellite {
     display: block;
-    margin: 10px auto;
-    max-width: 80%;
-    max-height: 250px;
+    margin: auto;
+    padding: 1rem;
+    padding-top: 0rem;
   }
   
   .circle-bg {
@@ -58,9 +60,9 @@
   }
 
 .sat_title {
-    color: rgb(69, 69, 69);
+    color: #3A3A3A;
     font-family: "Poppins";
     font-weight: bold;
-    font-size: 1.7em;
+    font-size: 1.5em;
     text-anchor: middle;
 }

@@ -1,0 +1,57 @@
+.realtime-exceptions-flex-wrapper {
+    display: flex;
+    flex-flow: column;
+    background-color: #ffffff;
+    width: 30%;
+    border-radius: 10px;
+    padding: 1rem;
+    padding-top: 0rem;
+}
+
+.downloads-card {
+    overflow-y: auto;
+    height: 30vh;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+    background-color: #E8E8E8;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #8E8E8E;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
+  
+.realtime-exceptions-header {
+    color: hsl(0, 0%, 23%);
+    font-size: 1.5rem;
+}
+
+.download-row {
+    color: hsl(0, 0%, 23%);
+    font-family: "Poppins";
+    margin: 0.2rem;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+
+.download-id-text {
+    background-color: #E8E8E8;
+    border-radius: 5px;
+    padding: 0.3rem;
+    width: 65%;
+
+}
+
+.download-time-text {
+    color: #FE7670;
+    background-color: #FEEAEC;
+    width: 25%;
+    padding: 0.3rem;
+    border-radius: 5px;
+}

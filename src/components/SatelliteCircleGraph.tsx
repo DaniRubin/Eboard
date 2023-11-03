@@ -17,16 +17,14 @@ const data = { name: 'satellite name', value: 90, time: "00:00:00", minutes: "60
 
 const SatelliteCircleGraph = () => {
   return (
-    <>
-    
      <div className="flex-wrapper">
         <div className="single-chart">
             <text  className="sat_title">{data.name}</text>
-            <svg viewBox="0 0 36 36" className="circular-chart">
+            <svg viewBox="0 0 36 36" className="circular-chart-satellite">
                 <defs>
                     <linearGradient id="Satellite_Gradient">
-                    <stop offset="0%" stop-color={COLORS_RED.hard} />
-                    <stop offset="100%" stop-color={COLORS_RED.light}/>
+                    <stop offset="0%" stopColor={COLORS_RED.hard} />
+                    <stop offset="100%" stopColor={COLORS_RED.light}/>
                     </linearGradient>
                 </defs>
                 <path className="circle-bg"
@@ -35,8 +33,8 @@ const SatelliteCircleGraph = () => {
                     a 15.9155 15.9155 0 0 1 0 -31.831"
                 />
                 <path stroke="url(#Satellite_Gradient)" className="circle"
-                    stroke-dasharray={`${data.value}, 100`}
-                    marker-end="url(#round)"
+                    strokeDasharray={`${data.value}, 100`}
+                    markerEnd="url(#round)"
                     d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -49,8 +47,7 @@ const SatelliteCircleGraph = () => {
                 </a>
             </svg>
             </div>
-        </div>
-    </>
+      </div>
   )
 }
 

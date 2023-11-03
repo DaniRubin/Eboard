@@ -6,14 +6,13 @@ const COLORS_GREEN = {light_green: '#A2EFD3',medium_green: '#4CC790',hard_green:
 
 const TotalCircleGraph = () => {
   return (
-    <>
-     <div className="flex-wrapper">
+    <div className="flex-wrapper">
         <div className="single-chart">
-            <svg viewBox="0 0 36 36" className="circular-chart">
+            <svg viewBox="0 0 36 36" className="circular-chart-total">
                 <defs>
                     <linearGradient id="Total_Gradient">
-                    <stop offset="0%" stop-color={COLORS_GREEN.hard_green} />
-                    <stop offset="100%" stop-color={COLORS_GREEN.light_green}/>
+                    <stop offset="0%" stopColor={COLORS_GREEN.hard_green} />
+                    <stop offset="100%" stopColor={COLORS_GREEN.light_green}/>
                     </linearGradient>
                 </defs>
                 <path className="circle-bg"
@@ -22,8 +21,8 @@ const TotalCircleGraph = () => {
                     a 15.9155 15.9155 0 0 1 0 -31.831"
                 />
                 <path stroke="url(#Total_Gradient)" className="circle"
-                    stroke-dasharray={`${data.value}, 100`}
-                    marker-end="url(#round)"
+                    strokeDasharray={`${data.value}, 100`}
+                    markerEnd="url(#round)"
                     d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -34,9 +33,8 @@ const TotalCircleGraph = () => {
                     <text x="18" y="20.35" className="percentage">{data.value}%</text>
                 </a>
             </svg>
-            </div>
         </div>
-    </>
+    </div>
   )
 }
 
