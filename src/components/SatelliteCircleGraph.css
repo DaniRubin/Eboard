@@ -4,8 +4,8 @@
   }
   
   .single-chart {
-    width: 17rem;
-    height: 100%;
+    padding: 10px;
+    position: relative;
     background-color: #ffffff;
     justify-content: space-around ;
   }

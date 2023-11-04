@@ -7,7 +7,7 @@ const COLORS_GREEN = {light_green: '#A2EFD3',medium_green: '#4CC790',hard_green:
 const TotalCircleGraph = () => {
   return (
     <div className="flex-wrapper">
-        <div className="single-chart">
+        <div className="single-chart-total">
             <svg viewBox="0 0 36 36" className="circular-chart-total">
                 <defs>
                     <linearGradient id="Total_Gradient">

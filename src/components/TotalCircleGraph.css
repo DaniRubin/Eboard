@@ -2,41 +2,45 @@
     display: flex;
     flex-flow: row nowrap;
   }
-  
-  .single-chart {
-    width: 10rem;
-    height: 100%;
-    background-color: #ffffff;
-    border-radius: 5%;
-    margin: 1rem;
-    justify-content: space-around ;
+
+  .single-chart-total {
+    display: flex;
+    width: 100%;
+    margin:8px auto;
+    height: 300px;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 51px;
+    background-color: white;
   }
-  
+
   .circular-chart-total {
     display: block;
     margin: auto;
     padding: 1rem;
   }
-  
+
   .circle-bg {
     fill: none;
     stroke: #eee;
     stroke-width: 3.8;
   }
-  
+
   .circle {
     fill: none;
     stroke-width: 3.8;
     stroke-linecap: round;
     animation: progress 1s ease-out forwards;
   }
-  
+
   @keyframes progress {
     0% {
       stroke-dasharray: 0 100;
     }
   }
-  
+
   .percentage {
     fill: white;
     font-family: "Poppins";
