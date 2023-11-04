@@ -1,0 +1,54 @@
+.flex-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  
+  .single-chart {
+    width: 10rem;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 5%;
+    margin: 1rem;
+    justify-content: space-around ;
+  }
+  
+  .circular-chart-total {
+    display: block;
+    margin: auto;
+    padding: 1rem;
+  }
+  
+  .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+  }
+  
+  .circle {
+    fill: none;
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+  }
+  
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+  
+  .percentage {
+    fill: white;
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 0.3em;
+    text-anchor: middle;
+  }
+
+  .title {
+    fill: rgb(143, 143, 143);
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 0.15em;
+    text-anchor: middle;
+  }

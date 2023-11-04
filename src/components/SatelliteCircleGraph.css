@@ -1,0 +1,68 @@
+ .flex-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  
+  .single-chart {
+    width: 17rem;
+    height: 100%;
+    background-color: #ffffff;
+    justify-content: space-around ;
+  }
+  
+  .circular-chart-satellite {
+    display: block;
+    margin: auto;
+    padding: 1rem;
+    padding-top: 0rem;
+  }
+  
+  .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+  }
+  
+  .circle {
+    fill: none;
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+  }
+  
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+  
+  .percentage_mini {
+    fill: white;
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 0.17em;
+    text-anchor: middle;
+  }
+
+  .time_minutes {
+    fill: rgb(143, 143, 143);
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 0.15em;
+    text-anchor: middle;
+  }
+
+  .time {
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 0.3em;
+    text-anchor: middle;
+  }
+
+.sat_title {
+    color: #3A3A3A;
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 1.5em;
+    text-anchor: middle;
+}
