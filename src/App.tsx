@@ -60,7 +60,7 @@ const App = () => {
         {satelliteName: 'Sat6', value: 88, time: "00:00:00", minutes: "60 min"},
         {satelliteName: 'Sat7', value: 9, time: "00:00:00", minutes: "60 min"},
         {satelliteName: 'Sat8', value: 44, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat9', value: 55, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat9', value: 0, time: "-", minutes: "60 min"},
         {satelliteName: 'Sat10', value: 66, time: "00:00:00", minutes: "60 min"},
         {satelliteName: 'Sat11', value: 77, time: "00:00:00", minutes: "60 min"},
         {satelliteName: 'Sat12', value: 99, time: "00:00:00", minutes: "60 min"},

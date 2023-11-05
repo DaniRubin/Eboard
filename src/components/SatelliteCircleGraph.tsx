@@ -1,25 +1,27 @@
 import './SatelliteCircleGraph.css'
-import { COLORS_YELLOW, COLORS_RED, COLORS_GREEN } from '../assets/colors'
+import {COLORS_YELLOW, COLORS_RED, COLORS_GREEN, COLORS_GRAY} from '../assets/colors'
 
 type Props = {
-  satelliteName: string,
-  value: number,
-  time: string,
-  limit: string
+    satelliteName: string,
+    value: number,
+    time: string,
+    limit: string
 };
 
-const SatelliteCircleGraph = ({ satelliteName, value, time, limit }: Props) => {
-  const getColor = (percentageValue: number) => {
-    if (percentageValue < 80) return COLORS_RED
-    else if (percentageValue > 80 && percentageValue < 90) return COLORS_YELLOW
-    return COLORS_GREEN
-  }
+const SatelliteCircleGraph = ({satelliteName, value, time, limit}: Props) => {
+    const getColor = (percentageValue: number, time: string) => {
+        if (percentageValue === 0 && time === '-') return COLORS_GRAY
+        else if (percentageValue < 80) return COLORS_RED
+        else if (percentageValue > 80 && percentageValue < 90) return COLORS_YELLOW
+        return COLORS_GREEN
+    }
 
-  const color = getColor(value);
+    const color = getColor(value, time);
 
+    console.log(satelliteName, color)
     return (
         <div className="flex-wrapper">
-            <div className="single-chart">
+            <div className="single-chart" style={{opacity: time==='-' ? 0.5 : 1}}>
                 <text className="sat_title">{satelliteName}</text>
                 <svg viewBox="0 0 36 36" className="circular-chart-satellite">
                     <defs>
