@@ -1,16 +1,15 @@
 import styled from "styled-components";
-import logo from '../../assets/ProductionLogoHeader.svg';
 
 const HeaderPanel = styled.div`
-    display: flex;
-    width: 100%;
-    height: 3vh;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    align-items: center;
-    flex-shrink: 0;
-    border-bottom: 1px solid rgba(58, 58, 58, 0.20);
-    background: #ffffff;
+  display: flex;
+  width: 100%;
+  height: 3vh;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  align-items: center;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(58, 58, 58, 0.20);
+  background: #ffffff;
 `
 
 const HeaderText = styled.div`
@@ -29,10 +28,15 @@ const HeaderImage = styled.img`
   flex-shrink: 0;
 `
 
-const Header = () => (
+type Props = {
+    text: string,
+    logo: any
+};
+
+const Header = (props: Props) => (
     <HeaderPanel>
-        <HeaderImage src={logo} alt="Logo"/>
-        <HeaderText>Production  Dashboard</HeaderText>
+        <HeaderImage src={props.logo} alt="Logo"/>
+        <HeaderText>{props.text}</HeaderText>
     </HeaderPanel>
 )
 

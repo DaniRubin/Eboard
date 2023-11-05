@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import satLogo from '../../assets/SatelliteLogo.svg';
 import prodLogo from "../../assets/ProductionLogo.svg";
+import {useNavigate} from "react-router-dom";
 
 const SideNavStyle = styled.div`
   height: 100%;
@@ -10,7 +11,6 @@ const SideNavStyle = styled.div`
   top: 0;
   left: 0;
   display: flex;
-  //padding: 24px 7px 820px 8px;
   flex-direction: column;
   border-right: 1px solid rgba(58, 58, 58, 0.20);
   background: #3A3A3A;
@@ -41,22 +41,31 @@ const NavImage = styled.img<{ isTitle: boolean }>((props) => {
     margin: auto;
     flex-shrink:0;`
 });
-const SideNav = () => (
-    <SideNavStyle>
-        <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Eboard"} isTitle={true}/>
-        <SideNavOption logo={prodLogo} logoText={"productionLogo"} OptionText={"Production"} isTitle={false}/>
+
+const SideNav = () => {
+    const navigate = useNavigate();
+
+    return <SideNavStyle>
+        <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Eboard"} isTitle={true} onClick={() => {
+        }}/>
+        <SideNavOption logo={prodLogo} logoText={"productionLogo"} OptionText={"Production"} isTitle={false}
+                       onClick={() => navigate('/')}/>
+        <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Satellite"} isTitle={false}
+                       onClick={() => navigate('/satellite')}/>
     </SideNavStyle>
-)
+
+}
 
 type SideNavOptionProps = {
     logo: any,
     logoText: string,
     OptionText: string,
-    isTitle: boolean
+    isTitle: boolean,
+    onClick: () => void
 };
 
 const SideNavOption = (props: SideNavOptionProps) => (
-    <SideNavOptionStyle isTitle={props.isTitle}>
+    <SideNavOptionStyle isTitle={props.isTitle} onClick={props.onClick}>
         <NavImage src={props.logo} alt={props.logoText} isTitle={props.isTitle}/>
         <div>{props.OptionText}</div>
     </SideNavOptionStyle>
