@@ -15,7 +15,7 @@ const TotalCircleGraph = ({ value }: Props) => {
       const color = getColor(value);
 
   return (
-    <div className="flex-wrapper">
+    <div className="flex-wrapper-total">
         <div className="single-chart-total">
             <svg viewBox="0 0 36 36" className="circular-chart-total">
                 <defs>

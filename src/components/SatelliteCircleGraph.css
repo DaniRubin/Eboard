@@ -1,14 +1,15 @@
 .flex-wrapper {
     display: flex;
     flex-flow: row nowrap;
+    width:23%;
 }
 
 .single-chart {
     padding: 10px;
     position: relative;
     background-color: #ffffff;
-    width: 28vh;
-    height:240px;
+    width: 100%;
+    /*height:240px;*/
     justify-content: space-around;
     border-radius: 15px;
 
@@ -17,8 +18,8 @@
 .circular-chart-satellite {
     display: block;
     margin: auto;
-    padding: 54px;
     padding-top: 0rem;
+    max-height: 200px;
 }
 
 .circle-bg {

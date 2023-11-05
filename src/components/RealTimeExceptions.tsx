@@ -1,26 +1,30 @@
 import './RealTimeExceptions.css'
-
+import urgentIcon from '../assets/UrgentIcon.svg'
 type Props = {
-  downloads: {
-    downloadId: string;
-    time: string;
-  }[]
+    downloads: {
+        downloadId: string;
+        time: string;
+        urgent: boolean;
+    }[]
 };
 
 
-const RealTimeExceptions = ({ downloads } : Props) => (
-	<div className="realtime-exceptions-flex-wrapper">
-		<text className='realtime-exceptions-header'>real time exceptions</text>
-		<div className='downloads-card'>
-			{
-				downloads.map((download) => 
-				<text key={download.downloadId} className="download-row">
-					<text className="download-id-text">{download.downloadId}</text>
-					<text className="download-time-text">{download.time}</text>
-				</text>)
-			}
-		</div>
-	</div>
+const RealTimeExceptions = ({downloads}: Props) => (
+    <div className="realtime-exceptions-flex-wrapper">
+        <text className='realtime-exceptions-header'>real time exceptions</text>
+        <div className='downloads-card'>
+            {
+                downloads.map((download) =>
+                    <text key={download.downloadId} className="download-row">
+                        <text className="download-id-text">
+                            {download.downloadId}
+                            {download.urgent && <img src={urgentIcon} style={{float:'right', marginTop: '3px', marginRight: '5px'}}/>}
+                        </text>
+                        <text className="download-time-text">{download.time}</text>
+                    </text>)
+            }
+        </div>
+    </div>
 )
 
 export default RealTimeExceptions;

@@ -37,19 +37,19 @@ const App = () => {
     ];
 
     const downloads = [
-        {downloadId: 'chocolate', time: '10:00'},
-        {downloadId: 'strawberry', time: '20:00'},
-        {downloadId: 'vanilla', time: '30:00'},
-        {downloadId: 'dsffs', time: '30:00'},
-        {downloadId: 'gfdgd', time: '30:00'},
-        {downloadId: 'sdfdsf', time: '30:00'},
-        {downloadId: 'sdvsdv', time: '30:00'},
-        {downloadId: 'nhgnghf', time: '30:00'},
-        {downloadId: 'gsfg', time: '30:00'},
-        {downloadId: 'vanfdfdilla', time: '30:00'},
-        {downloadId: 'nfn', time: '30:00'},
-        {downloadId: 'vanidfglla', time: '30:00'},
-        {downloadId: 'vanfbvdfilla', time: '30:00'}
+        {downloadId: 'chocolate', time: '10:00', urgent: true},
+        {downloadId: 'strawberry', time: '20:00', urgent: true},
+        {downloadId: 'vanilla', time: '30:00', urgent: true},
+        {downloadId: 'dsffs', time: '30:00', urgent: false},
+        {downloadId: 'gfdgd', time: '30:00', urgent: true},
+        {downloadId: 'sdfdsf', time: '30:00', urgent: false},
+        {downloadId: 'sdvsdv', time: '30:00', urgent: true},
+        {downloadId: 'nhgnghf', time: '30:00', urgent: false},
+        {downloadId: 'gsfg', time: '30:00', urgent: true},
+        {downloadId: 'vanfdfdilla', time: '30:00', urgent: false},
+        {downloadId: 'nfn', time: '30:00', urgent: true},
+        {downloadId: 'vanidfglla', time: '30:00', urgent: true},
+        {downloadId: 'vanfbvdfilla', time: '30:00', urgent: true}
     ];
     const satellitesInfoList = [
         {satelliteName: 'Sat1', value: 90, time: "00:00:00", minutes: "60 min"},
