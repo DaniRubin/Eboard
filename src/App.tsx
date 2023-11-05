@@ -22,10 +22,18 @@ import SideNav from "./components/Layout/SideNav";
 
 const App = () => {
 
-    const options = [
-        {value: 'chocolate', label: 'Chocolate'},
-        {value: 'strawberry', label: 'Strawberry'},
-        {value: 'vanilla', label: 'Vanilla'}
+    const optionsSatFamily = [
+        {value: 'All', label: 'All'},
+        {value: 'SAT FAMILY 1', label: 'SAT FAMILY 1'},
+        {value: 'SAT FAMILY 2', label: 'SAT FAMILY 2'},
+        {value: 'SAT FAMILY 3', label: 'SAT FAMILY 3'}
+    ];
+    const optionsTimes = [
+        {value: '24 hours', label: '24 hours'},
+        {value: '2 hours', label: '2 hours'},
+        {value: '12 hours', label: '12 hours'},
+        {value: '2 days', label: '2 days'},
+        {value: '1 week', label: '1 week'},
     ];
 
     const downloads = [
@@ -78,11 +86,11 @@ const App = () => {
         <>
             <SideNav/>
             <div style={{marginLeft: "160px"}}>
-            <Header/>
+                <Header/>
                 <MainBoard>
                     <MainBoardUpperPanel>
-                        <CostumeSelect options={options}/>
-                        <CostumeSelect options={options}/>
+                        <CostumeSelect options={optionsSatFamily}/>
+                        <CostumeSelect options={optionsTimes}/>
                         <LastUpdated time={"10:10:10"}/>
                     </MainBoardUpperPanel>
 
@@ -126,16 +134,16 @@ const MainBoardUpperPanel = styled.div`
 `
 const SatelliteContainer = styled.div`
   display: flex;
-  width: 67%;
+  width: 70%;
   gap: 20px;
-  margin-left: 8px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 7px;
 `
 
 const OverviewContainer = styled.div`
   display: flex;
-  width: 33%;
+  width: 30%;
   //margin-left: 2%;
   align-items: stretch;
   align-content: stretch;

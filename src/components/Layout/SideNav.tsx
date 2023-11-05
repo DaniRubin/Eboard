@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import satLogo from '../../assets/SatelliteLogo.png';
-import prodLogo from "../../assets/ProductionLogo.png";
+import satLogo from '../../assets/SatelliteLogo.svg';
+import prodLogo from "../../assets/ProductionLogo.svg";
 
 const SideNavStyle = styled.div`
   height: 100%;

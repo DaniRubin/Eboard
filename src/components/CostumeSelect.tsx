@@ -18,6 +18,7 @@ type Props = {
 const CostumeSelect = ({options}: Props) => (
     <SelectWrapper>
         <Select options={options}
+                defaultValue={options[0]}
                 className={"select-option"}
                 menuPlacement="auto"
                 menuPosition="fixed"

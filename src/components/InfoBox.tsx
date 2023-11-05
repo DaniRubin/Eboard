@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const InfoBoxWrapper = styled.div`
   display: flex;
-  width: 45%;
+  width: 44%;
   height: 40px;
 
   color: var(--grey, #8E8E8E);

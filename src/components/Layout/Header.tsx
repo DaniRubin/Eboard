@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from '../../assets/ProductionLogo.png';
+import logo from '../../assets/ProductionLogoHeader.svg';
 
 const HeaderPanel = styled.div`
     display: flex;
@@ -10,11 +10,11 @@ const HeaderPanel = styled.div`
     align-items: center;
     flex-shrink: 0;
     border-bottom: 1px solid rgba(58, 58, 58, 0.20);
-    background: #BBB;
+    background: #ffffff;
 `
 
 const HeaderText = styled.div`
-  color: var(--white, #F8F8F8);
+  color: var(--white, #000);
   font-family: Poppins;
   font-size: 24px;
   font-style: normal;
@@ -31,7 +31,7 @@ const HeaderImage = styled.img`
 
 const Header = () => (
     <HeaderPanel>
-        <HeaderImage src={logo} alt="Logo" />;
+        <HeaderImage src={logo} alt="Logo"/>
         <HeaderText>Production  Dashboard</HeaderText>
     </HeaderPanel>
 )
