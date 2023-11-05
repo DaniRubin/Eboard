@@ -1,5 +1,5 @@
 import './RealTimeExceptions.css'
-import urgentIcon from '../assets/UrgentIcon.svg'
+import urgentIcon from '../../assets/UrgentIcon.svg'
 type Props = {
     downloads: {
         downloadId: string;

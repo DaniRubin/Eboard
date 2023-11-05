@@ -1,5 +1,5 @@
 import './TotalCircleGraph.css'
-import { COLORS_YELLOW, COLORS_RED, COLORS_GREEN } from '../assets/colors'
+import { COLORS_YELLOW, COLORS_RED, COLORS_GREEN } from '../../assets/colors'
 
 type Props = {
     value: number,

@@ -10,11 +10,10 @@ import '@fontsource/poppins/800.css';
 import '@fontsource/poppins/900.css';
 
 import styled from "styled-components";
-import './App.css'
-import TotalCircleGraph from './components/TotalCircleGraph'
-import SatelliteCircleGraph from './components/SatelliteCircleGraph'
+import TotalCircleGraph from './components/CircleGraph/TotalCircleGraph'
+import SatelliteCircleGraph from './components/CircleGraph/SatelliteCircleGraph'
 import CostumeSelect from "./components/CostumeSelect";
-import RealTimeExceptions from "./components/RealTimeExceptions";
+import RealTimeExceptions from "./components/Tables/RealTimeExceptions";
 import Header from "./components/Layout/Header";
 import LastUpdated from "./components/LastUpdated";
 import InfoBox from "./components/InfoBox";
@@ -36,35 +35,40 @@ const App = () => {
         {value: '1 week', label: '1 week'},
     ];
 
-    const downloads = [
-        {downloadId: 'chocolate', time: '10:00', urgent: true},
-        {downloadId: 'strawberry', time: '20:00', urgent: true},
-        {downloadId: 'vanilla', time: '30:00', urgent: true},
-        {downloadId: 'dsffs', time: '30:00', urgent: false},
-        {downloadId: 'gfdgd', time: '30:00', urgent: true},
-        {downloadId: 'sdfdsf', time: '30:00', urgent: false},
-        {downloadId: 'sdvsdv', time: '30:00', urgent: true},
-        {downloadId: 'nhgnghf', time: '30:00', urgent: false},
-        {downloadId: 'gsfg', time: '30:00', urgent: true},
-        {downloadId: 'vanfdfdilla', time: '30:00', urgent: false},
-        {downloadId: 'nfn', time: '30:00', urgent: true},
-        {downloadId: 'vanidfglla', time: '30:00', urgent: true},
-        {downloadId: 'vanfbvdfilla', time: '30:00', urgent: true}
-    ];
-    const satellitesInfoList = [
-        {satelliteName: 'Sat1', value: 90, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat2', value: 72, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat3', value: 15, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat4', value: 87, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat5', value: 90, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat6', value: 88, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat7', value: 9, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat8', value: 44, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat9', value: 0, time: "-", minutes: "60 min"},
-        {satelliteName: 'Sat10', value: 66, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat11', value: 77, time: "00:00:00", minutes: "60 min"},
-        {satelliteName: 'Sat12', value: 99, time: "00:00:00", minutes: "60 min"},
-    ];
+    const response = {
+        SatInfo: [
+            {satelliteName: 'Sat1', value: 90, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat2', value: 72, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat3', value: 15, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat4', value: 87, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat5', value: 90, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat6', value: 88, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat7', value: 9, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat8', value: 44, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat9', value: 0, time: "-", minutes: "60 min"},
+            {satelliteName: 'Sat10', value: 66, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat11', value: 77, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat12', value: 99, time: "00:00:00", minutes: "60 min"},
+        ],
+        LateProducts: [
+            {downloadId: 'chocolate', time: '10:00', urgent: true},
+            {downloadId: 'strawberry', time: '20:00', urgent: true},
+            {downloadId: 'vanilla', time: '30:00', urgent: true},
+            {downloadId: 'dsffs', time: '30:00', urgent: false},
+            {downloadId: 'gfdgd', time: '30:00', urgent: true},
+            {downloadId: 'sdfdsf', time: '30:00', urgent: false},
+            {downloadId: 'sdvsdv', time: '30:00', urgent: true},
+            {downloadId: 'nhgnghf', time: '30:00', urgent: false},
+            {downloadId: 'gsfg', time: '30:00', urgent: true},
+            {downloadId: 'vanfdfdilla', time: '30:00', urgent: false},
+            {downloadId: 'nfn', time: '30:00', urgent: true},
+            {downloadId: 'vanidfglla', time: '30:00', urgent: true},
+            {downloadId: 'vanfbvdfilla', time: '30:00', urgent: true}
+        ],
+        lastUpdatedTime: "10:11:12",
+        LFMetadataProblem: 1,
+        InProgressProducts: 4
+    }
 
     // const satelliteData = {
     //     satelliteName: 'Satellite A',
@@ -80,10 +84,8 @@ const App = () => {
     // {/*<SatelliteProfile satelliteData={satelliteData}/>*/
     // }
 
-    const data = {satelliteName: 'satellite name', value: 90, time: "00:00:00", minutes: "60 min"};
-
     return (
-        <>
+        <Wrapper>
             <SideNav/>
             <div style={{marginLeft: "160px"}}>
                 <Header/>
@@ -91,12 +93,12 @@ const App = () => {
                     <MainBoardUpperPanel>
                         <CostumeSelect options={optionsSatFamily}/>
                         <CostumeSelect options={optionsTimes}/>
-                        <LastUpdated time={"10:10:10"}/>
+                        <LastUpdated time={response.lastUpdatedTime}/>
                     </MainBoardUpperPanel>
 
                     <SectionContainer>
                         <SatelliteContainer>
-                            {satellitesInfoList.map((satInfo) => {
+                            {response.SatInfo.map((satInfo) => {
                                 return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
                                                              value={satInfo.value}
                                                              time={satInfo.time}
@@ -107,10 +109,10 @@ const App = () => {
                         </SatelliteContainer>
                         <OverviewContainer>
                             <TotalCircleGraph value={50}/>
-                            <RealTimeExceptions downloads={downloads}/>
+                            <RealTimeExceptions downloads={response.LateProducts}/>
                             <SectionContainer>
-                                <InfoBox text={'LF metadata problem: '} value={5} isPositiveValue={false}/>
-                                <InfoBox text={'In Progress products: '} value={10} isPositiveValue={true}/>
+                                <InfoBox text={'LF metadata problem: '} value={response.LFMetadataProblem} isPositiveValue={false}/>
+                                <InfoBox text={'In Progress products: '} value={response.InProgressProducts} isPositiveValue={true}/>
                             </SectionContainer>
                         </OverviewContainer>
                     </SectionContainer>
@@ -118,15 +120,16 @@ const App = () => {
 
                 </MainBoard>
             </div>
-        </>
+        </Wrapper>
     )
 }
 
 export default App
 
-
+const Wrapper = styled.div`
+  text-align: center;
+`
 const MainBoard = styled.div`
-  //display: flex;
   margin: 32px 35px;
 `
 const MainBoardUpperPanel = styled.div`
@@ -144,7 +147,6 @@ const SatelliteContainer = styled.div`
 const OverviewContainer = styled.div`
   display: flex;
   width: 30%;
-  //margin-left: 2%;
   align-items: stretch;
   align-content: stretch;
   gap: 15px;

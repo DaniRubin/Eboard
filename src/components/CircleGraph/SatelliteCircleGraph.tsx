@@ -1,5 +1,5 @@
 import './SatelliteCircleGraph.css'
-import {COLORS_YELLOW, COLORS_RED, COLORS_GREEN, COLORS_GRAY} from '../assets/colors'
+import {COLORS_YELLOW, COLORS_RED, COLORS_GREEN, COLORS_GRAY} from '../../assets/colors'
 
 type Props = {
     satelliteName: string,
@@ -18,7 +18,6 @@ const SatelliteCircleGraph = ({satelliteName, value, time, limit}: Props) => {
 
     const color = getColor(value, time);
 
-    console.log(satelliteName, color)
     return (
         <div className="flex-wrapper">
             <div className="single-chart" style={{opacity: time==='-' ? 0.5 : 1}}>
