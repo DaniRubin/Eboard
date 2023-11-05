@@ -8,6 +8,7 @@ import CostumeSelect from "./components/CostumeSelect";
 import RealTimeExceptions from "./components/RealTimeExceptions";
 import Header from "./components/Layout/Header";
 import LastUpdated from "./components/LastUpdated";
+import InfoBox from "./components/InfoBox";
 
 const App = () => {
 
@@ -31,6 +32,20 @@ const App = () => {
         {downloadId: 'nfn', time: '30:00'},
         {downloadId: 'vanidfglla', time: '30:00'},
         {downloadId: 'vanfbvdfilla', time: '30:00'}
+    ];
+    const satellitesInfoList = [
+        {satelliteName: 'Sat1', value: 90, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat2', value: 72, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat3', value: 15, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat4', value: 87, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat5', value: 90, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat6', value: 88, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat7', value: 9, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat8', value: 44, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat9', value: 55, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat10', value: 66, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat11', value: 77, time: "00:00:00", minutes: "60 min"},
+        {satelliteName: 'Sat12', value: 99, time: "00:00:00", minutes: "60 min"},
     ];
 
     // const satelliteData = {
@@ -59,26 +74,26 @@ const App = () => {
                     <LastUpdated time={"10:10:10"}/>
                 </MainBoardUpperPanel>
 
-                <div style={{display: "flex", marginTop: '10px', alignItems: 'stretch'}}>
+                <SectionContainer>
                     <SatelliteContainer>
-                        <SatelliteCircleGraph satelliteName="Sat_1" value={data.value} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_2" value={72} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_3" value={85} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_4" value={83} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_5" value={95} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_6" value={40} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_7" value={90} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_8" value={80} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_9" value={70} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_10" value={99} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_11" value={100} time={data.time} limit={data.minutes}/>
-                        <SatelliteCircleGraph satelliteName="Sat_12" value={68} time={data.time} limit={data.minutes}/>
+                        {satellitesInfoList.map((satInfo) => {
+                            return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
+                                                         value={satInfo.value}
+                                                         time={satInfo.time}
+                                                         limit={satInfo.minutes}/>
+
+                        })}
+
                     </SatelliteContainer>
                     <OverviewContainer>
                         <TotalCircleGraph value={50}/>
                         <RealTimeExceptions downloads={downloads}/>
+                        <SectionContainer>
+                            <InfoBox text={'LF metadata problem: '} value={5} isPositiveValue={false}/>
+                            <InfoBox text={'In Progress products: '} value={10} isPositiveValue={true}/>
+                        </SectionContainer>
                     </OverviewContainer>
-                </div>
+                </SectionContainer>
 
 
             </MainBoard>
@@ -98,19 +113,15 @@ const MainBoardUpperPanel = styled.div`
 `
 const SatelliteContainer = styled.div`
   display: flex;
-  //border: 1px solid black;
   width: 60%;
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 15px;
+  gap: 20px;
   margin-left: 8px;
-  flex-shrink: 0;
   flex-wrap: wrap;
+  justify-content: space-between;
 `
 
 const OverviewContainer = styled.div`
   display: flex;
-  //border: 1px solid black;
   width: 38%;
   margin-left: 2%;
   align-items: stretch;
@@ -119,5 +130,11 @@ const OverviewContainer = styled.div`
   flex-shrink: 0;
   flex-wrap: wrap;
   flex-direction: column;
-  
+`
+
+const SectionContainer = styled.div`
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  width: 100%;
 `

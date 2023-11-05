@@ -1,11 +1,12 @@
 .realtime-exceptions-flex-wrapper {
     display: flex;
     flex-flow: column;
-    background-color: #ffffff;
-    border-radius: 15px;
+    /*background-color: #ffffff;*/
     padding: 1rem;
-    padding-top: 0rem;
-    width: 95%
+    width: 95%;
+    border-radius: 15px;
+    background:  #F8F8F8;
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 
 .downloads-card {
