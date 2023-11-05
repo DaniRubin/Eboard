@@ -8,6 +8,7 @@ import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
 import '@fontsource/poppins/900.css';
+import {useState} from 'react';
 
 import styled from "styled-components";
 import TotalCircleGraph from './components/CircleGraph/TotalCircleGraph'
@@ -18,14 +19,15 @@ import Header from "./components/Layout/Header";
 import LastUpdated from "./components/LastUpdated";
 import InfoBox from "./components/InfoBox";
 import SideNav from "./components/Layout/SideNav";
+import {type} from "@vitejs/plugin-react";
 
 const App = () => {
 
     const optionsSatFamily = [
         {value: 'All', label: 'All'},
-        {value: 'SAT FAMILY 1', label: 'SAT FAMILY 1'},
-        {value: 'SAT FAMILY 2', label: 'SAT FAMILY 2'},
-        {value: 'SAT FAMILY 3', label: 'SAT FAMILY 3'}
+        {value: 'type1', label: 'SAT FAMILY 1'},
+        {value: 'type2', label: 'SAT FAMILY 2'},
+        {value: 'type3', label: 'SAT FAMILY 3'}
     ];
     const optionsTimes = [
         {value: '24 hours', label: '24 hours'},
@@ -37,18 +39,19 @@ const App = () => {
 
     const response = {
         SatInfo: [
-            {satelliteName: 'Sat1', value: 90, time: "00:00:00", minutes: "60 min"},
-            {satelliteName: 'Sat2', value: 72, time: "00:00:00", minutes: "60 min"},
-            {satelliteName: 'Sat3', value: 15, time: "00:00:00", minutes: "60 min"},
-            {satelliteName: 'Sat4', value: 87, time: "00:00:00", minutes: "60 min"},
-            {satelliteName: 'Sat5', value: 90, time: "00:00:00", minutes: "60 min"},
-            {satelliteName: 'Sat6', value: 88, time: "00:00:00", minutes: "60 min"},
-            {satelliteName: 'Sat7', value: 9, time: "00:00:00", minutes: "60 min"},
-            {satelliteName: 'Sat8', value: 44, time: "00:00:00", minutes: "60 min"},
-            {satelliteName: 'Sat9', value: 0, time: "-", minutes: "60 min"},
-            {satelliteName: 'Sat10', value: 66, time: "00:00:00", minutes: "60 min"},
-            {satelliteName: 'Sat11', value: 77, time: "00:00:00", minutes: "60 min"},
-            {satelliteName: 'Sat12', value: 99, time: "00:00:00", minutes: "60 min"},
+            {satelliteName: 'Sat1', value: 90, time: "00:00:00", minutes: "60 min", type: 'type1'},
+            {satelliteName: 'Sat2', value: 72, time: "00:00:00", minutes: "60 min", type: 'type1'},
+            {satelliteName: 'Sat3', value: 15, time: "00:00:00", minutes: "60 min", type: 'type1'},
+            {satelliteName: 'Sat4', value: 87, time: "00:00:00", minutes: "60 min", type: 'type1'},
+            {satelliteName: 'Sat5', value: 90, time: "00:00:00", minutes: "60 min", type: 'type1'},
+            {satelliteName: 'Sat6', value: 88, time: "00:00:00", minutes: "60 min", type: 'type1'},
+            {satelliteName: 'Sat7', value: 9, time: "00:00:00", minutes: "60 min", type: 'type2'},
+            {satelliteName: 'Sat8', value: 44, time: "00:00:00", minutes: "60 min", type: 'type2'},
+            {satelliteName: 'Sat9', value: 0, time: "-", minutes: "60 min", type: 'type2'},
+            {satelliteName: 'Sat10', value: 66, time: "00:00:00", minutes: "60 min", type: 'type3'},
+            {satelliteName: 'Sat11', value: 77, time: "00:00:00", minutes: "60 min", type: 'type3'},
+            {satelliteName: 'Sat12', value: 99, time: "00:00:00", minutes: "60 min", type: 'type3'},
+            {satelliteName: 'TOTAL', value: 81, time: "-", minutes: "-", type: "type1"},
         ],
         LateProducts: [
             {downloadId: 'chocolate', time: '10:00', urgent: true},
@@ -84,6 +87,8 @@ const App = () => {
     // {/*<SatelliteProfile satelliteData={satelliteData}/>*/
     // }
 
+    const [satTypesToDisplay, setSatTypesToDisplay] = useState<string>(optionsSatFamily[0].value)
+
     return (
         <Wrapper>
             <SideNav/>
@@ -91,24 +96,24 @@ const App = () => {
                 <Header/>
                 <MainBoard>
                     <MainBoardUpperPanel>
-                        <CostumeSelect options={optionsSatFamily}/>
-                        <CostumeSelect options={optionsTimes}/>
+                        <CostumeSelect options={optionsSatFamily} onChange={(option) => {setSatTypesToDisplay(option.value)}}/>
+                        <CostumeSelect options={optionsTimes} onChange={() => {}}/>
                         <LastUpdated time={response.lastUpdatedTime}/>
                     </MainBoardUpperPanel>
 
                     <SectionContainer>
                         <SatelliteContainer>
                             {response.SatInfo.map((satInfo) => {
-                                return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
-                                                             value={satInfo.value}
-                                                             time={satInfo.time}
-                                                             limit={satInfo.minutes}/>
-
+                                if(satInfo.type === satTypesToDisplay || satTypesToDisplay == "All")
+                                    return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
+                                                                 value={satInfo.value}
+                                                                 time={satInfo.time}
+                                                                 limit={satInfo.minutes}/>
                             })}
 
                         </SatelliteContainer>
                         <OverviewContainer>
-                            <TotalCircleGraph value={50}/>
+                            <TotalCircleGraph value={response.SatInfo[response.SatInfo.length-1]["value"]}/>
                             <RealTimeExceptions downloads={response.LateProducts}/>
                             <SectionContainer>
                                 <InfoBox text={'LF metadata problem: '} value={response.LFMetadataProblem} isPositiveValue={false}/>
@@ -142,6 +147,7 @@ const SatelliteContainer = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-left: 7px;
+  align-content: flex-start;
 `
 
 const OverviewContainer = styled.div`

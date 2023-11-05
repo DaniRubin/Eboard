@@ -25,7 +25,7 @@ const HeaderText = styled.div`
 const HeaderImage = styled.img`
   width: 36px;
   height: 33px;
-  margin-left: 5.2rem;
+  margin-left: 3.2rem;
   flex-shrink: 0;
 `
 

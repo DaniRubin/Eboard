@@ -9,6 +9,7 @@ type Props = {
 };
 
 const SatelliteCircleGraph = ({satelliteName, value, time, limit}: Props) => {
+    if(satelliteName === 'TOTAL') return null
     const getColor = (percentageValue: number, time: string) => {
         if (percentageValue === 0 && time === '-') return COLORS_GRAY
         else if (percentageValue < 80) return COLORS_RED
@@ -20,7 +21,7 @@ const SatelliteCircleGraph = ({satelliteName, value, time, limit}: Props) => {
 
     return (
         <div className="flex-wrapper">
-            <div className="single-chart" style={{opacity: time==='-' ? 0.5 : 1}}>
+            <div className="single-chart" style={{opacity: time==='-' ? 0.4 : 1}}>
                 <text className="sat_title">{satelliteName}</text>
                 <svg viewBox="0 0 36 36" className="circular-chart-satellite">
                     <defs>

@@ -13,11 +13,13 @@ type Props = {
         value: string;
         label: string;
     }[]
+    onChange: (option) => void,
 };
 
-const CostumeSelect = ({options}: Props) => (
+const CostumeSelect = ({options, onChange}: Props) => (
     <SelectWrapper>
         <Select options={options}
+                onChange={e => onChange(e)}
                 defaultValue={options[0]}
                 className={"select-option"}
                 menuPlacement="auto"
