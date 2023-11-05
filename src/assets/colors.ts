@@ -1,5 +1,5 @@
-const COLORS_YELLOW = {light: '#FFDAB9', medium: '#FFB248', hard: '#FFA900'};
-const COLORS_RED = {light: '#FFB6C1', medium: '#FF5733', hard: '#FF0000',};
-const COLORS_GREEN = {light: '#7ADBA5', medium: '#4CC790', hard: '#48bf53'};
+const COLORS_YELLOW = {light: '#FFD89D', medium: '#FAA629', hard: '#F8F8F8'};
+const COLORS_RED = {light: '#FAA6AB', medium: '#FE7670', hard: '#FE7670',};
+const COLORS_GREEN = {light: '#DAF1DD', medium: '#9ADBA0', hard: '#9ADBA0'};
 
 export { COLORS_YELLOW, COLORS_RED, COLORS_GREEN }

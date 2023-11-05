@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from './LogoProduction.png';
+import logo from '../../assets/ProductionLogo.png';
 
 const HeaderPanel = styled.div`
     display: flex;

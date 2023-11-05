@@ -1,6 +1,15 @@
 import "@fontsource/poppins";
-import styled from "styled-components";
+import '@fontsource/poppins/100.css';
+import '@fontsource/poppins/200.css';
+import '@fontsource/poppins/300.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/poppins/800.css';
+import '@fontsource/poppins/900.css';
 
+import styled from "styled-components";
 import './App.css'
 import TotalCircleGraph from './components/TotalCircleGraph'
 import SatelliteCircleGraph from './components/SatelliteCircleGraph'
@@ -9,6 +18,7 @@ import RealTimeExceptions from "./components/RealTimeExceptions";
 import Header from "./components/Layout/Header";
 import LastUpdated from "./components/LastUpdated";
 import InfoBox from "./components/InfoBox";
+import SideNav from "./components/Layout/SideNav";
 
 const App = () => {
 
@@ -66,37 +76,40 @@ const App = () => {
 
     return (
         <>
+            <SideNav/>
+            <div style={{marginLeft: "160px"}}>
             <Header/>
-            <MainBoard>
-                <MainBoardUpperPanel>
-                    <CostumeSelect options={options}/>
-                    <CostumeSelect options={options}/>
-                    <LastUpdated time={"10:10:10"}/>
-                </MainBoardUpperPanel>
+                <MainBoard>
+                    <MainBoardUpperPanel>
+                        <CostumeSelect options={options}/>
+                        <CostumeSelect options={options}/>
+                        <LastUpdated time={"10:10:10"}/>
+                    </MainBoardUpperPanel>
 
-                <SectionContainer>
-                    <SatelliteContainer>
-                        {satellitesInfoList.map((satInfo) => {
-                            return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
-                                                         value={satInfo.value}
-                                                         time={satInfo.time}
-                                                         limit={satInfo.minutes}/>
+                    <SectionContainer>
+                        <SatelliteContainer>
+                            {satellitesInfoList.map((satInfo) => {
+                                return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
+                                                             value={satInfo.value}
+                                                             time={satInfo.time}
+                                                             limit={satInfo.minutes}/>
 
-                        })}
+                            })}
 
-                    </SatelliteContainer>
-                    <OverviewContainer>
-                        <TotalCircleGraph value={50}/>
-                        <RealTimeExceptions downloads={downloads}/>
-                        <SectionContainer>
-                            <InfoBox text={'LF metadata problem: '} value={5} isPositiveValue={false}/>
-                            <InfoBox text={'In Progress products: '} value={10} isPositiveValue={true}/>
-                        </SectionContainer>
-                    </OverviewContainer>
-                </SectionContainer>
+                        </SatelliteContainer>
+                        <OverviewContainer>
+                            <TotalCircleGraph value={50}/>
+                            <RealTimeExceptions downloads={downloads}/>
+                            <SectionContainer>
+                                <InfoBox text={'LF metadata problem: '} value={5} isPositiveValue={false}/>
+                                <InfoBox text={'In Progress products: '} value={10} isPositiveValue={true}/>
+                            </SectionContainer>
+                        </OverviewContainer>
+                    </SectionContainer>
 
 
-            </MainBoard>
+                </MainBoard>
+            </div>
         </>
     )
 }
@@ -106,24 +119,24 @@ export default App
 
 const MainBoard = styled.div`
   //display: flex;
-  margin: 32px 70px;
+  margin: 32px 35px;
 `
 const MainBoardUpperPanel = styled.div`
   display: flex;
 `
 const SatelliteContainer = styled.div`
   display: flex;
-  width: 60%;
+  width: 67%;
   gap: 20px;
   margin-left: 8px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 `
 
 const OverviewContainer = styled.div`
   display: flex;
-  width: 38%;
-  margin-left: 2%;
+  width: 33%;
+  //margin-left: 2%;
   align-items: stretch;
   align-content: stretch;
   gap: 15px;

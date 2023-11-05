@@ -24,7 +24,7 @@ const SatelliteCircleGraph = ({ satelliteName, value, time, limit }: Props) => {
                 <svg viewBox="0 0 36 36" className="circular-chart-satellite">
                     <defs>
                         <linearGradient id={`Satellite_Gradient_${satelliteName}`}>
-                            <stop offset="0%" stopColor={color.hard}/>
+                            <stop offset="0%" stopColor={color.light}/>
                             <stop offset="100%" stopColor={color.light}/>
                         </linearGradient>
                     </defs>
