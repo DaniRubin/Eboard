@@ -4,8 +4,9 @@ import logo from './LogoProduction.png';
 const HeaderPanel = styled.div`
     display: flex;
     width: 100%;
-    height: 100px;
-    padding: 32px 770px 32px 68px;
+    height: 3vh;
+    padding-top: 32px;
+    padding-bottom: 32px;
     align-items: center;
     flex-shrink: 0;
     border-bottom: 1px solid rgba(58, 58, 58, 0.20);
@@ -24,6 +25,7 @@ const HeaderText = styled.div`
 const HeaderImage = styled.img`
   width: 36px;
   height: 33px;
+  margin-left: 5.2rem;
   flex-shrink: 0;
 `
 

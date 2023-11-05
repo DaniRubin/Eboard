@@ -2,15 +2,15 @@
     display: flex;
     flex-flow: column;
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 1rem;
     padding-top: 0rem;
-    margin: 8px;
+    width: 95%
 }
 
 .downloads-card {
     overflow-y: auto;
-    height: 30vh;
+    height: 33vh;
 }
 
 ::-webkit-scrollbar {

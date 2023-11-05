@@ -7,7 +7,10 @@
     padding: 10px;
     position: relative;
     background-color: #ffffff;
+    width: 20vh;
     justify-content: space-around ;
+    border-radius: 15px;
+
   }
   
   .circular-chart-satellite {
@@ -63,6 +66,6 @@
     color: #3A3A3A;
     font-family: "Poppins";
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1em;
     text-anchor: middle;
 }

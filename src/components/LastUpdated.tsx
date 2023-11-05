@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const LastUpdatedWrapper = styled.div`
   float: right;
-  order: 2;
   margin-left: auto;
   font-family: Poppins;
   color: var(--text-grey, #BBB);

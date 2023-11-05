@@ -1,12 +1,11 @@
 import "@fontsource/poppins";
 import styled from "styled-components";
 
+import './App.css'
 import TotalCircleGraph from './components/TotalCircleGraph'
 import SatelliteCircleGraph from './components/SatelliteCircleGraph'
-import './App.css'
 import CostumeSelect from "./components/CostumeSelect";
 import RealTimeExceptions from "./components/RealTimeExceptions";
-import SatelliteProfile from "./components/SatelliteProfile";
 import Header from "./components/Layout/Header";
 import LastUpdated from "./components/LastUpdated";
 
@@ -34,21 +33,21 @@ const App = () => {
         {downloadId: 'vanfbvdfilla', time: '30:00'}
     ];
 
-    const satelliteData = {
-        satelliteName: 'Satellite A',
-        averageTime: '2.5 seconds',
-        limitTime: '3 seconds',
-        productsCount: 100,
-        onTimeProducts: 80,
-        lateProducts: 20,
-        cep90: '3.2 seconds',
-        productsInProgress: '10',
-        metadataProblems: 5
-    };
-    {/*<SatelliteProfile satelliteData={satelliteData}/>*/
-    }
+    // const satelliteData = {
+    //     satelliteName: 'Satellite A',
+    //     averageTime: '2.5 seconds',
+    //     limitTime: '3 seconds',
+    //     productsCount: 100,
+    //     onTimeProducts: 80,
+    //     lateProducts: 20,
+    //     cep90: '3.2 seconds',
+    //     productsInProgress: '10',
+    //     metadataProblems: 5
+    // };
+    // {/*<SatelliteProfile satelliteData={satelliteData}/>*/
+    // }
 
-    const data = {name: 'satellite name', value: 90, time: "00:00:00", minutes: "60 min"};
+    const data = {satelliteName: 'satellite name', value: 90, time: "00:00:00", minutes: "60 min"};
 
     return (
         <>
@@ -62,22 +61,21 @@ const App = () => {
 
                 <div style={{display: "flex", marginTop: '10px', alignItems: 'stretch'}}>
                     <SatelliteContainer>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
-                        <SatelliteCircleGraph data={data}/>
+                        <SatelliteCircleGraph satelliteName="Sat_1" value={data.value} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_2" value={72} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_3" value={85} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_4" value={83} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_5" value={95} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_6" value={40} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_7" value={90} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_8" value={80} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_9" value={70} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_10" value={99} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_11" value={100} time={data.time} limit={data.minutes}/>
+                        <SatelliteCircleGraph satelliteName="Sat_12" value={68} time={data.time} limit={data.minutes}/>
                     </SatelliteContainer>
-
                     <OverviewContainer>
-                        <TotalCircleGraph/>
+                        <TotalCircleGraph value={50}/>
                         <RealTimeExceptions downloads={downloads}/>
                     </OverviewContainer>
                 </div>
@@ -105,6 +103,7 @@ const SatelliteContainer = styled.div`
   align-items: flex-start;
   align-content: flex-start;
   gap: 15px;
+  margin-left: 8px;
   flex-shrink: 0;
   flex-wrap: wrap;
 `

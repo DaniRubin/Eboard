@@ -5,14 +5,14 @@
 
   .single-chart-total {
     display: flex;
-    width: 100%;
-    margin:8px auto;
-    height: 300px;
+    width: 95%;
+    height: 28vh;
     padding: 20px;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     gap: 51px;
+    border-radius: 15px;
     background-color: white;
   }
 
