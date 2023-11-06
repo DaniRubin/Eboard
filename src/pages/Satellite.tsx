@@ -91,7 +91,7 @@ const Satellite = () => {
 export default Satellite
 
 const MainBoard = styled.div`
-  margin: 32px 35px;
+  margin: 16px 35px;
 `
 const MainBoardUpperPanel = styled.div`
   display: flex;
