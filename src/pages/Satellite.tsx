@@ -3,11 +3,11 @@ import Header from "../components/Layout/Header";
 import CostumeSelect from "../components/CostumeSelect";
 import LastUpdated from "../components/LastUpdated";
 import styled from "styled-components";
-import TrendGraph from "../components/Trend/TrendGraph";
-import SatelliteCircleGraph from "../components/CircleGraph/SatelliteCircleGraph";
+import TrendGraph from "../components/Graphs/Trend/TrendGraph";
+import SatelliteCircleGraph from "../components/Graphs/CircleGraph/SatelliteCircleGraph";
 import RealTimeExceptions from "../components/Tables/RealTimeExceptions";
 import SatelliteProfile from "../components/Tables/SatelliteProfile";
-import Histogram from "../components/Histogram/Histogram";
+import Histogram from "../components/Graphs/Histogram/Histogram";
 import ServicesTime from "../components/ServicesTime";
 
 const Satellite = () => {

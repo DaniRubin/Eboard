@@ -1,5 +1,5 @@
 import './SatelliteCircleGraph.css'
-import {COLORS_YELLOW, COLORS_RED, COLORS_GREEN, COLORS_GRAY} from '../../assets/colors'
+import {COLORS_YELLOW, COLORS_RED, COLORS_GREEN, COLORS_GRAY} from '../../../assets/colors'
 
 type Props = {
     satelliteName: string,

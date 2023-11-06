@@ -1,8 +1,8 @@
 import {useState} from 'react';
 
 import styled from "styled-components";
-import TotalCircleGraph from '../components/CircleGraph/TotalCircleGraph'
-import SatelliteCircleGraph from '../components/CircleGraph/SatelliteCircleGraph'
+import TotalCircleGraph from '../components/Graphs/CircleGraph/TotalCircleGraph'
+import SatelliteCircleGraph from '../components/Graphs/CircleGraph/SatelliteCircleGraph'
 import CostumeSelect from "../components/CostumeSelect";
 import RealTimeExceptions from "../components/Tables/RealTimeExceptions";
 import LastUpdated from "../components/LastUpdated";
