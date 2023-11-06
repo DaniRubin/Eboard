@@ -1,19 +1,77 @@
 import styled from "styled-components";
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    Tooltip,
+    Cell
+} from "recharts";
 
-const HistogramWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  background: var(--white, #F8F8F8);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
-  
-  color: #3A3A3A;
-`
+const data = [
+    {seconds: 111, count: 21},
+    {seconds: 133, count: 32},
+    {seconds: 167, count: 22},
+    {seconds: 192, count: 30},
+    {seconds: 205, count: 22},
+    {seconds: 194, count: 42},
+    {seconds: 395, count: 35},
+    {seconds: 403, count: 31},
+];
+
 const Histogram = () => (
     <HistogramWrapper>
-        <h1>Histogram - distribution</h1>
-        <h2>Work in progress</h2>
+        <HistogramTitle>distribution time distribution</HistogramTitle>
+        <BarChart
+            width={500}
+            height={300}
+            data={data}
+            margin={{
+                top: 0,
+                right: 10,
+                left: 10,
+                bottom: 20
+            }}
+        >
+            <XAxis stroke="#A3A3A3" dataKey="seconds" label={{value: 'Distribution time', position: 'bottom'}}
+                   padding={{left: 10, right: 10}}/>
+            <YAxis stroke="#A3A3A3" label={{value: 'Products count', position: 'left', angle: -90, offset: -10}}/>
+            <Tooltip cursor={false}/>
+            <Bar dataKey="count" fill="#black" background={{fill: "#F8F8F8"}}>
+                {
+                    data.map((entry, index) => {
+                        const color = entry.seconds > 300 ? '#FEEAEC' : '#DAF1DD';
+                        return <Cell fill={color} radius={[20, 20, 0, 0]}/>;
+                    })
+                }
+            </Bar>
+        </BarChart>
     </HistogramWrapper>
 )
 
 export default Histogram;
+
+
+const HistogramWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 20px;
+  background: var(--white, #F8F8F8);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: #3A3A3A;
+
+`
+const HistogramTitle = styled.div`
+  color: var(--dark-grey, #3A3A3A);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+`
