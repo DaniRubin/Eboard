@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ebaordLogo from '../../assets/EboardLogo.svg';
 import satLogo from '../../assets/SatelliteLogo.svg';
 import prodLogo from "../../assets/ProductionLogo.svg";
 import {useNavigate} from "react-router-dom";
@@ -46,7 +47,7 @@ const SideNav = () => {
     const navigate = useNavigate();
 
     return <SideNavStyle>
-        <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Eboard"} isTitle={true} onClick={() => {
+        <SideNavOption logo={ebaordLogo} logoText={"satLogo"} OptionText={"Eboard"} isTitle={true} onClick={() => {
         }}/>
         <SideNavOption logo={prodLogo} logoText={"productionLogo"} OptionText={"Production"} isTitle={false}
                        onClick={() => navigate('/')}/>

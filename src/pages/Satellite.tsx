@@ -1,4 +1,4 @@
-import logo from '../assets/ProductionLogoHeader.svg';
+import logo from '../assets/SatelliteLogoHeader.svg';
 import Header from "../components/Layout/Header";
 import CostumeSelect from "../components/CostumeSelect";
 import LastUpdated from "../components/LastUpdated";
