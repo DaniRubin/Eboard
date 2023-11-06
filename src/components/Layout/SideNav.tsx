@@ -51,7 +51,7 @@ const SideNav = () => {
         <SideNavOption logo={prodLogo} logoText={"productionLogo"} OptionText={"Production"} isTitle={false}
                        onClick={() => navigate('/')}/>
         <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Satellite"} isTitle={false}
-                       onClick={() => navigate('/satellite')}/>
+                       onClick={() => navigate('/satellite/Sat1')}/>
     </SideNavStyle>
 
 }

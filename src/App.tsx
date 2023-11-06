@@ -17,21 +17,6 @@ import Satellite from "./pages/Satellite";
 import NoPage from "./pages/NoPage";
 
 const App = () => {
-
-    // const satelliteData = {
-    //     satelliteName: 'Satellite A',
-    //     averageTime: '2.5 seconds',
-    //     limitTime: '3 seconds',
-    //     productsCount: 100,
-    //     onTimeProducts: 80,
-    //     lateProducts: 20,
-    //     cep90: '3.2 seconds',
-    //     productsInProgress: '10',
-    //     metadataProblems: 5
-    // };
-    // {/*<SatelliteProfile satelliteData={satelliteData}/>*/
-    // }
-
     return (
         <Wrapper>
             <div style={{marginLeft: "160px"}}>
@@ -39,7 +24,7 @@ const App = () => {
                     <SideNav/>
                     <Routes>
                         <Route index element={<Production/>}/>
-                        <Route path="satellite" element={<Satellite/>}/>
+                        <Route path="satellite/:satellite" element={<Satellite/>}/>
                         <Route path="*" element={<NoPage/>}/>
                     </Routes>
                 </BrowserRouter>

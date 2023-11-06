@@ -9,23 +9,22 @@ import RealTimeExceptions from "../components/Tables/RealTimeExceptions";
 import SatelliteProfile from "../components/Tables/SatelliteProfile";
 import Histogram from "../components/Graphs/Histogram/Histogram";
 import ServicesTime from "../components/ServicesTime";
+import {useParams, useNavigate} from 'react-router';
+import {useEffect} from "react";
 
 const Satellite = () => {
+    const {satellite} = useParams();
+    const navigate = useNavigate();
+    const knownSatellites = ['Sat1', 'Sat2', 'Sat3', 'Sat4', 'Sat5', 'Sat6', 'Sat7', 'Sat8', 'Sat9', 'Sat10', 'Sat11', 'Sat12']
 
-    const optionsSatFamily = [
-        {value: 'sat1', label: 'sat1'},
-        {value: 'sat2', label: 'sat2'},
-        {value: 'sat3', label: 'sat3'},
-        {value: 'sat4', label: 'sat4'},
-        {value: 'sat5', label: 'sat5'},
-        {value: 'sat6', label: 'sat6'},
-        {value: 'sat7', label: 'sat7'},
-        {value: 'sat8', label: 'sat8'},
-        {value: 'sat9', label: 'sat9'},
-        {value: 'sat10', label: 'sat10'},
-        {value: 'sat11', label: 'sat11'},
-        {value: 'sat12', label: 'sat12'},
-    ];
+    useEffect(() => {
+        if (!knownSatellites.includes(satellite || "")) {
+            navigate('/null')
+        }
+    }, [satellite])
+
+
+    const optionsSat = knownSatellites.map((s) => ({label: s, value: s}))
     const optionsTimes = [
         {value: '24 hours', label: '24 hours'},
         {value: '2 hours', label: '2 hours'},
@@ -59,10 +58,11 @@ const Satellite = () => {
 
     return (
         <>
-            <Header text={"Satellite Dashboard"} logo={logo}/>
+            <Header text={`${satellite} Dashboard`} logo={logo}/>
             <MainBoard>
                 <MainBoardUpperPanel>
-                    <CostumeSelect options={optionsSatFamily} onChange={() => {
+                    <CostumeSelect options={optionsSat} onChange={(option) => {
+                        navigate(`/satellite/${option.value}`)
                     }}/>
                     <CostumeSelect options={optionsTimes} onChange={() => {
                     }}/>
@@ -98,7 +98,7 @@ const MainBoardUpperPanel = styled.div`
 `
 const SatelliteContainer = styled.div`
   display: flex;
-  width: 70%;
+  width: 60%;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -108,7 +108,7 @@ const SatelliteContainer = styled.div`
 
 const OverviewContainer = styled.div`
   display: flex;
-  width: 30%;
+  width: 38%;
   align-items: stretch;
   align-content: stretch;
   gap: 15px;

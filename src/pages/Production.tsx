@@ -9,8 +9,11 @@ import LastUpdated from "../components/LastUpdated";
 import InfoBox from "../components/InfoBox";
 import Header from "../components/Layout/Header";
 import logo from '../assets/ProductionLogoHeader.svg';
+import {useNavigate} from "react-router";
 
 const Production = () => {
+    const navigate = useNavigate()
+
     const optionsSatFamily = [
         {value: 'All', label: 'All'},
         {value: 'type1', label: 'SAT FAMILY 1'},
@@ -83,7 +86,8 @@ const Production = () => {
                                 return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
                                                              value={satInfo.value}
                                                              time={satInfo.time}
-                                                             limit={satInfo.minutes}/>
+                                                             limit={satInfo.minutes}
+                                                             onClick={() => navigate(`/satellite/${satInfo.satelliteName}`)}/>
                         })}
 
                     </SatelliteContainer>
