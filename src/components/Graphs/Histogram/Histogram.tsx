@@ -5,7 +5,8 @@ import {
     XAxis,
     YAxis,
     Tooltip,
-    Cell
+    Cell,
+    ResponsiveContainer
 } from "recharts";
 
 const data = [
@@ -22,30 +23,30 @@ const data = [
 const Histogram = () => (
     <HistogramWrapper>
         <HistogramTitle>distribution time distribution</HistogramTitle>
-        <BarChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-                top: 0,
-                right: 10,
-                left: 10,
-                bottom: 20
-            }}
-        >
-            <XAxis stroke="#A3A3A3" dataKey="seconds" label={{value: 'Distribution time', position: 'bottom'}}
-                   padding={{left: 10, right: 10}}/>
-            <YAxis stroke="#A3A3A3" label={{value: 'Products count', position: 'left', angle: -90, offset: -10}}/>
-            <Tooltip cursor={false}/>
-            <Bar dataKey="count" fill="#black" background={{fill: "#F8F8F8"}}>
-                {
-                    data.map((entry, index) => {
-                        const color = entry.seconds > 300 ? '#FEEAEC' : '#DAF1DD';
-                        return <Cell fill={color} radius={[20, 20, 0, 0]}/>;
-                    })
-                }
-            </Bar>
-        </BarChart>
+        <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+                data={data}
+                margin={{
+                    top: 0,
+                    right: 20,
+                    left: 10,
+                    bottom: 20
+                }}
+            >
+                <XAxis stroke="#A3A3A3" dataKey="seconds" label={{value: 'Distribution time', position: 'bottom'}}
+                       padding={{left: 10, right: 10}}/>
+                <YAxis stroke="#A3A3A3" label={{value: 'Products count', position: 'left', angle: -90, offset: -10}}/>
+                <Tooltip cursor={false}/>
+                <Bar dataKey="count" fill="#black" background={{fill: "#F8F8F8"}}>
+                    {
+                        data.map((entry, index) => {
+                            const color = entry.seconds > 300 ? '#FEEAEC' : '#DAF1DD';
+                            return <Cell fill={color} radius={[20, 20, 0, 0]}/>;
+                        })
+                    }
+                </Bar>
+            </BarChart>
+        </ResponsiveContainer>
     </HistogramWrapper>
 )
 
@@ -63,6 +64,7 @@ const HistogramWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 10px 0px;
 
   color: #3A3A3A;
 
