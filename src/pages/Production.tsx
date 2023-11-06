@@ -71,10 +71,10 @@ const Production = () => {
             <Header text={"Production Dashboard"} logo={logo}/>
             <MainBoard>
                 <MainBoardUpperPanel>
-                    <CostumeSelect options={optionsSatFamily} onChange={(option) => {
+                    <CostumeSelect options={optionsSatFamily} defaultValue={optionsSatFamily[0]} onChange={(option) => {
                         setSatTypesToDisplay(option.value)
                     }}/>
-                    <CostumeSelect options={optionsTimes} onChange={() => {
+                    <CostumeSelect options={optionsTimes} defaultValue={optionsTimes[0]} onChange={() => {
                     }}/>
                     <LastUpdated time={response.lastUpdatedTime}/>
                 </MainBoardUpperPanel>

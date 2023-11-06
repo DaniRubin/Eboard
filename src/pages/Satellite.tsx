@@ -61,10 +61,10 @@ const Satellite = () => {
             <Header text={`${satellite} Dashboard`} logo={logo}/>
             <MainBoard>
                 <MainBoardUpperPanel>
-                    <CostumeSelect options={optionsSat} onChange={(option) => {
+                    <CostumeSelect options={optionsSat} defaultValue={optionsSat.filter((option) => option.value === satellite)} onChange={(option) => {
                         navigate(`/satellite/${option.value}`)
                     }}/>
-                    <CostumeSelect options={optionsTimes} onChange={() => {
+                    <CostumeSelect options={optionsTimes} defaultValue={optionsTimes[0]} onChange={() => {
                     }}/>
                     <LastUpdated time={response.lastUpdatedTime}/>
                 </MainBoardUpperPanel>
