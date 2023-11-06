@@ -15,21 +15,23 @@ const SideNavStyle = styled.div`
   flex-direction: column;
   border-right: 1px solid rgba(58, 58, 58, 0.20);
   background: #3A3A3A;
-  gap: 20px;
+  //gap: 20px;
 `
-const SideNavOptionStyle = styled.div<{ isTitle: boolean }>((props) => {
-    return `color: var(--light-grey, #E8E8E8);
+const SideNavOptionStyle = styled.div<{ isTitle: boolean, isSelected: boolean }>((props) => {
+    return `
+    color: var(--light-grey, #E8E8E8);
       text-align: center;
       font-family: Poppins;
       font-size: 16px;
       font-style: normal;
       font-weight: 600;
       line-height: normal;
-      margin-top: 12px;
-      padding: 12px;
+      margin: ${props.isTitle ? '12px auto' : '0px'};;
+      padding: 20px;
       cursor: ${props.isTitle ? 'arrow' : 'pointer'};
+      background-color: ${props.isSelected ? '#515151' : '#3A3A3A'};
       &:hover {
-        background-color: ${props.isTitle ? '#3A3A3A' : 'black'};
+        background-color: ${props.isTitle ? '#3A3A3A' : '#BBB'};
       }
       div {
         margin-top: 8px;
@@ -47,11 +49,11 @@ const SideNav = () => {
     const navigate = useNavigate();
 
     return <SideNavStyle>
-        <SideNavOption logo={ebaordLogo} logoText={"satLogo"} OptionText={"Eboard"} isTitle={true} onClick={() => {
+        <SideNavOption logo={ebaordLogo} logoText={"satLogo"} OptionText={"Eboard"} isTitle={true} isSelected={false} onClick={() => {
         }}/>
-        <SideNavOption logo={prodLogo} logoText={"productionLogo"} OptionText={"Production"} isTitle={false}
+        <SideNavOption logo={prodLogo} logoText={"productionLogo"} OptionText={"Production"} isTitle={false} isSelected={window.location.pathname === '/'}
                        onClick={() => navigate('/')}/>
-        <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Satellite"} isTitle={false}
+        <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Satellite"} isTitle={false} isSelected={window.location.pathname !== '/'}
                        onClick={() => navigate('/satellite/Sat1')}/>
     </SideNavStyle>
 
@@ -62,11 +64,12 @@ type SideNavOptionProps = {
     logoText: string,
     OptionText: string,
     isTitle: boolean,
-    onClick: () => void
+    onClick: () => void,
+    isSelected: boolean
 };
 
 const SideNavOption = (props: SideNavOptionProps) => (
-    <SideNavOptionStyle isTitle={props.isTitle} onClick={props.onClick}>
+    <SideNavOptionStyle isTitle={props.isTitle} isSelected={props.isSelected} onClick={props.onClick}>
         <NavImage src={props.logo} alt={props.logoText} isTitle={props.isTitle}/>
         <div>{props.OptionText}</div>
     </SideNavOptionStyle>
