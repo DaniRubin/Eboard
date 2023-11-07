@@ -11,7 +11,7 @@ import Histogram from "../components/Graphs/Histogram/Histogram";
 import ServicesTime from "../components/ServicesTime";
 import {useParams, useNavigate} from 'react-router';
 import {useEffect, useState} from "react";
-import {MockSatellitePageResponse} from "../Mock";
+import {generateSatellite} from "../Mock";
 
 const knownSatellites = ['Sat1', 'Sat2', 'Sat3', 'Sat4', 'Sat5', 'Sat6', 'Sat7', 'Sat8', 'Sat9', 'Sat10', 'Sat11', 'Sat12']
 const optionsSat = knownSatellites.map((s) => ({label: s, value: s}))
@@ -27,10 +27,11 @@ const Satellite = () => {
     const {satellite} = useParams();
     const navigate = useNavigate();
 
-    const [response, setResponse] = useState<any>(MockSatellitePageResponse)
+    const [response, setResponse] = useState<any>(generateSatellite())
 
     useEffect(() => {
         if (!knownSatellites.includes(satellite || "")) navigate('/null')
+        setResponse(generateSatellite())
     }, [satellite])
 
     return (
