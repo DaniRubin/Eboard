@@ -1,18 +1,16 @@
 import styled from "styled-components";
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 
-const data = [
-    {timeFrame: '10:00', seconds: 100},
-    {timeFrame: '12:00', seconds: 120},
-    {timeFrame: '14:00', seconds: 110},
-    {timeFrame: '16:00', seconds: 125},
-    {timeFrame: '18:00', seconds: 44},
-    {timeFrame: '20:00', seconds: 40},
-    {timeFrame: '22:00', seconds: 30},
-    {timeFrame: '00:00', seconds: 100},
-];
 
-const TrendGraph = () => (
+type Props = {
+    data: {
+        timeFrame: string,
+        seconds: number
+    }[],
+    numberOfHours: number,
+};
+
+const TrendGraph = ({data, numberOfHours}: Props) => (
     <TrendWrapper>
         <TrendTitle>distribution trend</TrendTitle>
         <ResponsiveContainer width="100%" height="100%">

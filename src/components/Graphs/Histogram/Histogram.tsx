@@ -9,18 +9,13 @@ import {
     ResponsiveContainer
 } from "recharts";
 
-const data = [
-    {seconds: 111, count: 21},
-    {seconds: 133, count: 32},
-    {seconds: 167, count: 22},
-    {seconds: 192, count: 30},
-    {seconds: 205, count: 22},
-    {seconds: 194, count: 42},
-    {seconds: 395, count: 35},
-    {seconds: 403, count: 31},
-];
-
-const Histogram = () => (
+type Props = {
+    data: {
+        count: number,
+        seconds: number
+    }[],
+};
+const Histogram = ({data}: Props) => (
     <HistogramWrapper>
         <HistogramTitle>distribution time distribution</HistogramTitle>
         <ResponsiveContainer width="100%" height="100%">

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import styled from "styled-components";
 import TotalCircleGraph from '../components/Graphs/CircleGraph/TotalCircleGraph'
@@ -10,61 +10,26 @@ import InfoBox from "../components/InfoBox";
 import Header from "../components/Layout/Header";
 import logo from '../assets/ProductionLogoHeader.svg';
 import {useNavigate} from "react-router";
+import {MockMainPageResponse} from '../Mock'
+
+const optionsSatFamily = [
+    {value: 'All', label: 'All'},
+    {value: 'type1', label: 'SAT FAMILY 1'},
+    {value: 'type2', label: 'SAT FAMILY 2'},
+    {value: 'type3', label: 'SAT FAMILY 3'}
+];
+const optionsTimes = [
+    {value: '24 hours', label: '24 hours'},
+    {value: '2 hours', label: '2 hours'},
+    {value: '12 hours', label: '12 hours'},
+    {value: '2 days', label: '2 days'},
+    {value: '1 week', label: '1 week'},
+];
 
 const Production = () => {
     const navigate = useNavigate()
-
-    const optionsSatFamily = [
-        {value: 'All', label: 'All'},
-        {value: 'type1', label: 'SAT FAMILY 1'},
-        {value: 'type2', label: 'SAT FAMILY 2'},
-        {value: 'type3', label: 'SAT FAMILY 3'}
-    ];
-    const optionsTimes = [
-        {value: '24 hours', label: '24 hours'},
-        {value: '2 hours', label: '2 hours'},
-        {value: '12 hours', label: '12 hours'},
-        {value: '2 days', label: '2 days'},
-        {value: '1 week', label: '1 week'},
-    ];
-
-    const response = {
-        SatInfo: [
-            {satelliteName: 'Sat1', value: 90, time: "00:00:00", minutes: "60 min", type: 'type1'},
-            {satelliteName: 'Sat2', value: 72, time: "00:00:00", minutes: "60 min", type: 'type1'},
-            {satelliteName: 'Sat3', value: 15, time: "00:00:00", minutes: "60 min", type: 'type1'},
-            {satelliteName: 'Sat4', value: 87, time: "00:00:00", minutes: "60 min", type: 'type1'},
-            {satelliteName: 'Sat5', value: 90, time: "00:00:00", minutes: "60 min", type: 'type1'},
-            {satelliteName: 'Sat6', value: 88, time: "00:00:00", minutes: "60 min", type: 'type1'},
-            {satelliteName: 'Sat7', value: 9, time: "00:00:00", minutes: "60 min", type: 'type2'},
-            {satelliteName: 'Sat8', value: 44, time: "00:00:00", minutes: "60 min", type: 'type2'},
-            {satelliteName: 'Sat9', value: 0, time: "-", minutes: "60 min", type: 'type2'},
-            {satelliteName: 'Sat10', value: 66, time: "00:00:00", minutes: "60 min", type: 'type3'},
-            {satelliteName: 'Sat11', value: 77, time: "00:00:00", minutes: "60 min", type: 'type3'},
-            {satelliteName: 'Sat12', value: 99, time: "00:00:00", minutes: "60 min", type: 'type3'},
-            {satelliteName: 'TOTAL', value: 81, time: "-", minutes: "-", type: "type1"},
-        ],
-        LateProducts: [
-            {downloadId: 'chocolate', time: '10:00', urgent: true},
-            {downloadId: 'strawberry', time: '20:00', urgent: true},
-            {downloadId: 'vanilla', time: '30:00', urgent: true},
-            {downloadId: 'dsffs', time: '30:00', urgent: false},
-            {downloadId: 'gfdgd', time: '30:00', urgent: true},
-            {downloadId: 'sdfdsf', time: '30:00', urgent: false},
-            {downloadId: 'sdvsdv', time: '30:00', urgent: true},
-            {downloadId: 'nhgnghf', time: '30:00', urgent: false},
-            {downloadId: 'gsfg', time: '30:00', urgent: true},
-            {downloadId: 'vanfdfdilla', time: '30:00', urgent: false},
-            {downloadId: 'nfn', time: '30:00', urgent: true},
-            {downloadId: 'vanidfglla', time: '30:00', urgent: true},
-            {downloadId: 'vanfbvdfilla', time: '30:00', urgent: true}
-        ],
-        lastUpdatedTime: "10:11:12",
-        LFMetadataProblem: 1,
-        InProgressProducts: 4
-    }
-
     const [satTypesToDisplay, setSatTypesToDisplay] = useState<string>(optionsSatFamily[0].value)
+    const [response, setResponse] = useState<any>(MockMainPageResponse)
 
     return (
         <>
@@ -81,7 +46,7 @@ const Production = () => {
 
                 <SectionContainer>
                     <SatelliteContainer>
-                        {response.SatInfo.map((satInfo) => {
+                        {response.SatInfo?.map((satInfo) => {
                             if (satInfo.type === satTypesToDisplay || satTypesToDisplay == "All")
                                 return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
                                                              value={satInfo.value}
