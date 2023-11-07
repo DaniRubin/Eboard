@@ -16,7 +16,7 @@ const SatelliteCircleGraph = ({satelliteName, value, time, limit, onClick}: Prop
     const getColor = (percentageValue: number, time: string) => {
         if (isDisabled) return COLORS_GRAY
         else if (percentageValue < 80) return COLORS_RED
-        else if (percentageValue > 80 && percentageValue < 90) return COLORS_YELLOW
+        else if (percentageValue >= 80 && percentageValue < 90) return COLORS_YELLOW
         return COLORS_GREEN
     }
 

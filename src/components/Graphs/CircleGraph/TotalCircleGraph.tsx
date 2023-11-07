@@ -8,7 +8,7 @@ type Props = {
 const TotalCircleGraph = ({ value }: Props) => {
     const getColor = (percentageValue: number) => {
         if (percentageValue < 80) return COLORS_RED
-        else if (percentageValue > 80 && percentageValue < 90) return COLORS_YELLOW
+        else if ((percentageValue >= 80 && percentageValue < 90)) return COLORS_YELLOW
         return COLORS_GREEN
       }
     
