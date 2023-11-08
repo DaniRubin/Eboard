@@ -17,6 +17,8 @@ import Satellite from "./pages/Satellite";
 import NoPage from "./pages/NoPage";
 import Telecommand from "./pages/Telecomand";
 
+export const MOCKED = true
+
 const App = () => {
     return (
         <Wrapper>

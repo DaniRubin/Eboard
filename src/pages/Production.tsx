@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 
 import styled from "styled-components";
 import TotalCircleGraph from '../components/Graphs/CircleGraph/TotalCircleGraph'
@@ -11,6 +11,7 @@ import Header from "../components/Layout/Header";
 import logo from '../assets/ProductionLogoHeader.svg';
 import {useNavigate} from "react-router";
 import {MockMainPageResponse} from '../Mock'
+import {MOCKED} from "../App";
 
 const optionsSatFamily = [
     {value: 'All', label: 'All'},
@@ -29,46 +30,64 @@ const optionsTimes = [
 const Production = () => {
     const navigate = useNavigate()
     const [satTypesToDisplay, setSatTypesToDisplay] = useState<string>(optionsSatFamily[0].value)
-    const [response, setResponse] = useState<any>(MockMainPageResponse)
+    const [response, setResponse] = useState<any>()
+
+    const fetchData = useCallback(async () => {
+        try {
+            if (MOCKED) return setResponse(MockMainPageResponse)
+            let res = await fetch("http://...")
+            res = await res.json()
+            setResponse(res)
+        } catch (err) {
+            console.log("Cannot fetch data from server")
+        }
+    }, [])
+
+    useEffect(() => {
+        fetchData()
+    }, [])
 
     return (
-        <>
-            <Header text={"Production Dashboard"} logo={logo}/>
-            <MainBoard>
-                <MainBoardUpperPanel>
-                    <CostumeSelect options={optionsSatFamily} defaultValue={optionsSatFamily[0]} onChange={(option) => {
-                        setSatTypesToDisplay(option.value)
-                    }}/>
-                    <CostumeSelect options={optionsTimes} defaultValue={optionsTimes[0]} onChange={() => {
-                    }}/>
-                    <LastUpdated time={response.lastUpdatedTime}/>
-                </MainBoardUpperPanel>
+        <>{
+            response ? <>
+                <Header text={"Production Dashboard"} logo={logo}/>
+                <MainBoard>
+                    <MainBoardUpperPanel>
+                        <CostumeSelect options={optionsSatFamily} defaultValue={optionsSatFamily[0]}
+                                       onChange={(option) => {
+                                           setSatTypesToDisplay(option.value)
+                                       }}/>
+                        <CostumeSelect options={optionsTimes} defaultValue={optionsTimes[0]} onChange={() => {
+                        }}/>
+                        <LastUpdated time={response.lastUpdatedTime}/>
+                    </MainBoardUpperPanel>
 
-                <SectionContainer>
-                    <SatelliteContainer>
-                        {response.SatInfo?.map((satInfo) => {
-                            if (satInfo.type === satTypesToDisplay || satTypesToDisplay == "All")
-                                return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
-                                                             value={satInfo.value}
-                                                             time={satInfo.time}
-                                                             limit={satInfo.minutes}
-                                                             onClick={() => navigate(`/satellite/${satInfo.satelliteName}`)}/>
-                        })}
+                    <SectionContainer>
+                        <SatelliteContainer>
+                            {Object.values(response.SatInfo).map((satInfo) => {
+                                if (satInfo.type === satTypesToDisplay || satTypesToDisplay == "All")
+                                    return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
+                                                                 value={satInfo.value}
+                                                                 time={satInfo.time}
+                                                                 limit={satInfo.limit}
+                                                                 onClick={() => navigate(`/satellite/${satInfo.satelliteName}`)}/>
+                            })}
 
-                    </SatelliteContainer>
-                    <OverviewContainer>
-                        <TotalCircleGraph value={response.SatInfo[response.SatInfo.length - 1]["value"]}/>
-                        <RealTimeExceptions downloads={response.LateProducts}/>
-                        <SectionContainer>
-                            <InfoBox text={'LF metadata problem: '} value={response.LFMetadataProblem}
-                                     isPositiveValue={false}/>
-                            <InfoBox text={'In Progress products: '} value={response.InProgressProducts}
-                                     isPositiveValue={true}/>
-                        </SectionContainer>
-                    </OverviewContainer>
-                </SectionContainer>
-            </MainBoard>
-        </>
+                        </SatelliteContainer>
+                        <OverviewContainer>
+                            <TotalCircleGraph value={response.SatInfo['TOTAL']["value"]}/>
+                            <RealTimeExceptions downloads={response.LateProducts}/>
+                            <SectionContainer>
+                                <InfoBox text={'LF metadata problem: '} value={response.LFMetadataProblem}
+                                         isPositiveValue={false}/>
+                                <InfoBox text={'In Progress products: '} value={response.InProgressProducts}
+                                         isPositiveValue={true}/>
+                            </SectionContainer>
+                        </OverviewContainer>
+                    </SectionContainer>
+                </MainBoard>
+            </> : null
+        }</>
     )
 }
 

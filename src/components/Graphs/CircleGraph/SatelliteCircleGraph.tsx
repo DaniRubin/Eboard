@@ -51,7 +51,7 @@ const SatelliteCircleGraph = ({satelliteName, value, time, limit, onClick}: Prop
                         <rect x="13.3" y="9.7" width="9.8" height="4.5" rx="1.5" fill={color.medium}/>
                         <text x="18.5" y="13" className="percentage_mini">{value}%</text>
                         <text x="18" y="20.35" className="time" fill={color.medium}>{time}</text>
-                        <text x="18" y="25" className="time_minutes">{limit}</text>
+                        <text x="18" y="25" className="time_minutes">{limit} min</text>
                     </a>
                 </svg>
             </div>
