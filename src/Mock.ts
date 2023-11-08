@@ -49,13 +49,13 @@ const generateTrend = () => {
 export const generateSatellite = () => {
     return {
         lastUpdatedTime: new Date(),
-        LateProducts: [{downloadId: 'chocolate', time: getRandomTime(), urgent: true},
-            {downloadId: 'strawberry', time: getRandomTime(), urgent: true},
-            {downloadId: 'vanilla', time: getRandomTime(), urgent: true},
-            {downloadId: 'dsffs', time: getRandomTime(), urgent: false},
-            {downloadId: 'gfdgd', time: getRandomTime(), urgent: true},
-            {downloadId: 'sdfdsf', time: getRandomTime(), urgent: false},
-            {downloadId: 'sdvsdv', time: getRandomTime(), urgent: true}
+        LateProducts: [{downloadId: 'chocolate', time: getRandomNumber(500), urgent: true},
+            {downloadId: 'strawberry', time:  getRandomNumber(500), urgent: true},
+            {downloadId: 'vanilla', time:  getRandomNumber(500), urgent: true},
+            {downloadId: 'dsffs', time:  getRandomNumber(500), urgent: false},
+            {downloadId: 'gfdgd', time:  getRandomNumber(500), urgent: true},
+            {downloadId: 'sdfdsf', time:  getRandomNumber(500), urgent: false},
+            {downloadId: 'sdvsdv', time:  getRandomNumber(500), urgent: true}
         ],
         Trend: [
             ...generateTrend()
