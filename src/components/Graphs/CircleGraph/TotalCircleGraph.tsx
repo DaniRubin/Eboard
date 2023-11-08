@@ -38,7 +38,7 @@ const TotalCircleGraph = ({ value }: Props) => {
                 />
                 <a className="background-percentage">
                     <text x="18" y="13" className="title">TOTAL</text>
-                    <rect x="10.5" y="15" width="15" height="7.5" rx="2.5" fill={color.medium} />
+                    <rect x="9.5" y="15" width="17" height="7.5" rx="2.5" fill={color.medium} />
                     <text x="18" y="20.35" className="percentage">{value}%</text>
                 </a>
             </svg>

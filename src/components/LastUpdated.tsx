@@ -24,7 +24,7 @@ type Props = {
 const LastUpdated = ({time}: Props) => (
     <LastUpdatedWrapper>
         <div>Last update time:</div>
-        <TimePart>{time}</TimePart>
+        <TimePart>{new Date(time).toLocaleTimeString()}</TimePart>
     </LastUpdatedWrapper>
 )
 

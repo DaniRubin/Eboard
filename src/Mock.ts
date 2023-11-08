@@ -22,21 +22,18 @@ export const MockMainPageResponse = {
         {satelliteName: 'TOTAL', value: getRandomNumber(30) + 70, time: "-", minutes: "-", type: "type1"},
     ],
     LateProducts: [
-        {downloadId: 'chocolate', time: getRandomTime(), urgent: true},
-        {downloadId: 'strawberry', time: getRandomTime(), urgent: true},
-        {downloadId: 'vanilla', time: getRandomTime(), urgent: true},
-        {downloadId: 'dsffs', time: getRandomTime(), urgent: false},
-        {downloadId: 'gfdgd', time: getRandomTime(), urgent: true},
-        {downloadId: 'sdfdsf', time: getRandomTime(), urgent: false},
-        {downloadId: 'sdvsdv', time: '30:00', urgent: true},
-        {downloadId: 'nhgnghf', time: '30:00', urgent: false},
-        {downloadId: 'gsfg', time: '30:00', urgent: true},
-        {downloadId: 'vanfdfdilla', time: '30:00', urgent: false},
-        {downloadId: 'nfn', time: '30:00', urgent: true},
-        {downloadId: 'vanidfglla', time: '30:00', urgent: true},
-        {downloadId: 'vanfbvdfilla', time: '30:00', urgent: true}
+        {downloadId: 'chocolate', time: getRandomNumber(1000), urgent: true},
+        {downloadId: 'strawberry', time: getRandomNumber(1000), urgent: true},
+        {downloadId: 'vanilla', time: getRandomNumber(1000), urgent: true},
+        {downloadId: 'dsffs', time: getRandomNumber(1000), urgent: false},
+        {downloadId: 'gfdgd', time: getRandomNumber(1000), urgent: true},
+        {downloadId: 'sdfdsf', time: getRandomNumber(1000), urgent: false},
+        {downloadId: 'sdvsdv', time:getRandomNumber(1000), urgent: true},
+        {downloadId: 'nhgnghf', time: getRandomNumber(1000), urgent: false},
+        {downloadId: 'gsfg', time: getRandomNumber(1000), urgent: true},
+        {downloadId: 'vanfdfdilla', time: getRandomNumber(1000), urgent: false},
     ],
-    lastUpdatedTime: "10:11:12",
+    lastUpdatedTime: new Date(),
     LFMetadataProblem: 1,
     InProgressProducts: 4
 }
@@ -51,7 +48,7 @@ const generateTrend = () => {
 
 export const generateSatellite = () => {
     return {
-        lastUpdatedTime: "10:11:12",
+        lastUpdatedTime: new Date(),
         LateProducts: [{downloadId: 'chocolate', time: getRandomTime(), urgent: true},
             {downloadId: 'strawberry', time: getRandomTime(), urgent: true},
             {downloadId: 'vanilla', time: getRandomTime(), urgent: true},

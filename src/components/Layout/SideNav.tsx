@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ebaordLogo from '../../assets/EboardLogo.svg';
 import satLogo from '../../assets/SatelliteLogo.svg';
 import prodLogo from "../../assets/ProductionLogo.svg";
+import telecommandLogo from "../../assets/TelecomandIcon.svg";
 import {useNavigate} from "react-router-dom";
 
 const SideNavStyle = styled.div`
@@ -49,12 +50,18 @@ const SideNav = () => {
     const navigate = useNavigate();
 
     return <SideNavStyle>
-        <SideNavOption logo={ebaordLogo} logoText={"satLogo"} OptionText={"Eboard"} isTitle={true} isSelected={false} onClick={() => {
-        }}/>
-        <SideNavOption logo={prodLogo} logoText={"productionLogo"} OptionText={"Production"} isTitle={false} isSelected={window.location.pathname === '/'}
+        <SideNavOption logo={ebaordLogo} logoText={"satLogo"} OptionText={"Eboard"} isTitle={true} isSelected={false}
+                       onClick={() => {
+                       }}/>
+        <SideNavOption logo={prodLogo} logoText={"productionLogo"} OptionText={"Production"} isTitle={false}
+                       isSelected={window.location.pathname === '/'}
                        onClick={() => navigate('/')}/>
-        <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Satellite"} isTitle={false} isSelected={window.location.pathname !== '/'}
+        <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Satellite"} isTitle={false}
+                       isSelected={window.location.pathname.includes('satellite')}
                        onClick={() => navigate('/satellite/Sat1')}/>
+        <SideNavOption logo={telecommandLogo} logoText={"telecommandLogo"} OptionText={"Telecommand"} isTitle={false}
+                       isSelected={window.location.pathname === '/telecommand'}
+                       onClick={() => navigate('/telecommand')}/>
     </SideNavStyle>
 
 }

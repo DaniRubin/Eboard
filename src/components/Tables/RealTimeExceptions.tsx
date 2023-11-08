@@ -1,9 +1,10 @@
 import './RealTimeExceptions.css'
 import urgentIcon from '../../assets/UrgentIcon.svg'
+
 type Props = {
     downloads: {
         downloadId: string;
-        time: string;
+        time: number;
         urgent: boolean;
     }[]
 };
@@ -18,9 +19,11 @@ const RealTimeExceptions = ({downloads}: Props) => (
                     <text key={download.downloadId} className="download-row">
                         <text className="download-id-text">
                             {download.downloadId}
-                            {download.urgent && <img src={urgentIcon} style={{float:'right', marginTop: '3px', marginRight: '5px'}}/>}
+                            {download.urgent &&
+                            <img src={urgentIcon} style={{float: 'right', marginTop: '3px', marginRight: '5px'}}/>}
                         </text>
-                        <text className="download-time-text">{download.time}</text>
+                        <text
+                            className="download-time-text">{Math.floor(download.time / 60)}:{Math.floor(download.time % 60).toString().padStart(2, "0")}h </text>
                     </text>)
             }
         </div>
