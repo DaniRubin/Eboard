@@ -66,7 +66,7 @@ const Satellite = () => {
                         <Histogram data={response.Histogram}/>
                     </OverviewContainer>
                 </SectionContainer>
-                <ServicesTime/>
+                <ServicesTime satType={response.SatType} data={response.ServicesTime}/>
             </MainBoard>
         </>
     )

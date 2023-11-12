@@ -7,18 +7,78 @@ const getRandomTime = () => {
 
 export const MockMainPageResponse = {
     SatInfo: {
-        'Sat1': {satelliteName: 'Sat1', value: getRandomNumber(30) + 70, time: getRandomTime(), limit: 60, type: 'type1'},
-        'Sat2': {satelliteName: 'Sat2', value: getRandomNumber(30) + 70, time: getRandomTime(), limit: 60, type: 'type1'},
-        'Sat3': {satelliteName: 'Sat3', value: getRandomNumber(30) + 70, time: getRandomTime(), limit: 60, type: 'type1'},
-        'Sat4': {satelliteName: 'Sat4', value: getRandomNumber(30) + 70, time: getRandomTime(), limit: 60, type: 'type1'},
-        'Sat5': {satelliteName: 'Sat5', value: getRandomNumber(30) + 70, time: getRandomTime(), limit: 60, type: 'type1'},
-        'Sat6': {satelliteName: 'Sat6', value: getRandomNumber(30) + 70, time: getRandomTime(), limit: 60, type: 'type1'},
+        'Sat1': {
+            satelliteName: 'Sat1',
+            value: getRandomNumber(30) + 70,
+            time: getRandomTime(),
+            limit: 60,
+            type: 'type1'
+        },
+        'Sat2': {
+            satelliteName: 'Sat2',
+            value: getRandomNumber(30) + 70,
+            time: getRandomTime(),
+            limit: 60,
+            type: 'type1'
+        },
+        'Sat3': {
+            satelliteName: 'Sat3',
+            value: getRandomNumber(30) + 70,
+            time: getRandomTime(),
+            limit: 60,
+            type: 'type1'
+        },
+        'Sat4': {
+            satelliteName: 'Sat4',
+            value: getRandomNumber(30) + 70,
+            time: getRandomTime(),
+            limit: 60,
+            type: 'type1'
+        },
+        'Sat5': {
+            satelliteName: 'Sat5',
+            value: getRandomNumber(30) + 70,
+            time: getRandomTime(),
+            limit: 60,
+            type: 'type1'
+        },
+        'Sat6': {
+            satelliteName: 'Sat6',
+            value: getRandomNumber(30) + 70,
+            time: getRandomTime(),
+            limit: 60,
+            type: 'type1'
+        },
         'Sat7': {satelliteName: 'Sat7', value: getRandomNumber(100), time: getRandomTime(), limit: 60, type: 'type2'},
-        'Sat8': {satelliteName: 'Sat8', value: getRandomNumber(30) + 70, time: getRandomTime(), limit: 60, type: 'type2'},
+        'Sat8': {
+            satelliteName: 'Sat8',
+            value: getRandomNumber(30) + 70,
+            time: getRandomTime(),
+            limit: 60,
+            type: 'type2'
+        },
         'Sat9': {satelliteName: 'Sat9', value: 0, time: "-", limit: 60, type: 'type2'},
-        'Sat10': {satelliteName: 'Sat10', value: getRandomNumber(30) + 70, time: getRandomTime(), limit: '-', type: 'type3'},
-        'Sat11': {satelliteName: 'Sat11', value: getRandomNumber(30) + 70, time: getRandomTime(), limit: '-', type: 'type3'},
-        'Sat12': {satelliteName: 'Sat12', value: getRandomNumber(30) + 70, time: getRandomTime(), limit: '-', type: 'type3'},
+        'Sat10': {
+            satelliteName: 'Sat10',
+            value: getRandomNumber(30) + 70,
+            time: getRandomTime(),
+            limit: '-',
+            type: 'type3'
+        },
+        'Sat11': {
+            satelliteName: 'Sat11',
+            value: getRandomNumber(30) + 70,
+            time: getRandomTime(),
+            limit: '-',
+            type: 'type3'
+        },
+        'Sat12': {
+            satelliteName: 'Sat12',
+            value: getRandomNumber(30) + 70,
+            time: getRandomTime(),
+            limit: '-',
+            type: 'type3'
+        },
         'TOTAL': {satelliteName: 'TOTAL', value: getRandomNumber(30) + 70, time: "-", limit: "-", type: "type1"},
     },
     LateProducts: [
@@ -28,7 +88,7 @@ export const MockMainPageResponse = {
         {downloadId: 'dsffs', time: getRandomNumber(1000), urgent: false},
         {downloadId: 'gfdgd', time: getRandomNumber(1000), urgent: true},
         {downloadId: 'sdfdsf', time: getRandomNumber(1000), urgent: false},
-        {downloadId: 'sdvsdv', time:getRandomNumber(1000), urgent: true},
+        {downloadId: 'sdvsdv', time: getRandomNumber(1000), urgent: true},
         {downloadId: 'nhgnghf', time: getRandomNumber(1000), urgent: false},
         {downloadId: 'gsfg', time: getRandomNumber(1000), urgent: true},
         {downloadId: 'vanfdfdilla', time: getRandomNumber(1000), urgent: false},
@@ -45,17 +105,25 @@ const generateTrend = () => {
     }
     return trendData
 }
+const generateSatType = () => {
+    switch (getRandomNumber(3)) {
+        case (0): return 'type1'
+        case (1): return 'type2'
+        case (2): return 'type3'
+
+    }
+}
 
 export const generateSatellite = () => {
     return {
         lastUpdatedTime: new Date(),
         LateProducts: [{downloadId: 'chocolate', time: getRandomNumber(500), urgent: true},
-            {downloadId: 'strawberry', time:  getRandomNumber(500), urgent: true},
-            {downloadId: 'vanilla', time:  getRandomNumber(500), urgent: true},
-            {downloadId: 'dsffs', time:  getRandomNumber(500), urgent: false},
-            {downloadId: 'gfdgd', time:  getRandomNumber(500), urgent: true},
-            {downloadId: 'sdfdsf', time:  getRandomNumber(500), urgent: false},
-            {downloadId: 'sdvsdv', time:  getRandomNumber(500), urgent: true}
+            {downloadId: 'strawberry', time: getRandomNumber(500), urgent: true},
+            {downloadId: 'vanilla', time: getRandomNumber(500), urgent: true},
+            {downloadId: 'dsffs', time: getRandomNumber(500), urgent: false},
+            {downloadId: 'gfdgd', time: getRandomNumber(500), urgent: true},
+            {downloadId: 'sdfdsf', time: getRandomNumber(500), urgent: false},
+            {downloadId: 'sdvsdv', time: getRandomNumber(500), urgent: true}
         ],
         Trend: [
             ...generateTrend()
@@ -81,6 +149,14 @@ export const generateSatellite = () => {
             {seconds: 194, count: getRandomNumber(30)},
             {seconds: 395, count: getRandomNumber(30)},
             {seconds: 403, count: getRandomNumber(30)},
-        ]
+        ],
+        SatType: generateSatType(),
+        ServicesTime: {
+            'kami': getRandomNumber(800),
+            'sgu': getRandomNumber(800),
+            'acgs': getRandomNumber(800),
+            'sgs': getRandomNumber(800),
+            'hoshen': getRandomNumber(800)
+        },
     }
 }
