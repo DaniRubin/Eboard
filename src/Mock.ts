@@ -83,11 +83,11 @@ export const MockMainPageResponse = {
     },
     LateProducts: [
         {downloadId: 'chocolate', time: getRandomNumber(1000), urgent: true},
-        {downloadId: 'strawberry', time: getRandomNumber(1000), urgent: true},
+        {downloadId: 'strawberry_psr', time: getRandomNumber(1000), urgent: true},
         {downloadId: 'vanilla', time: getRandomNumber(1000), urgent: true},
         {downloadId: 'dsffs', time: getRandomNumber(1000), urgent: false},
         {downloadId: 'gfdgd', time: getRandomNumber(1000), urgent: true},
-        {downloadId: 'sdfdsf', time: getRandomNumber(1000), urgent: false},
+        {downloadId: 'sdfdsf_psr', time: getRandomNumber(1000), urgent: false},
         {downloadId: 'sdvsdv', time: getRandomNumber(1000), urgent: true},
         {downloadId: 'nhgnghf', time: getRandomNumber(1000), urgent: false},
         {downloadId: 'gsfg', time: getRandomNumber(1000), urgent: true},
@@ -107,24 +107,31 @@ const generateTrend = () => {
 }
 const generateSatType = () => {
     switch (getRandomNumber(3)) {
-        case (0): return 'type1'
-        case (1): return 'type2'
-        case (2): return 'type3'
+        case (0):
+            return 'type1'
+        case (1):
+            return 'type2'
+        case (2):
+            return 'type3'
 
     }
+}
+const generateLateProducts = () => {
+    if (getRandomNumber(2) == 1) return []
+    return [{downloadId: 'chocolate', time: getRandomNumber(500), urgent: true},
+        {downloadId: 'strawberry', time: getRandomNumber(500), urgent: true},
+        {downloadId: 'vanilla_psr', time: getRandomNumber(500), urgent: true},
+        {downloadId: 'dsffs', time: getRandomNumber(500), urgent: false},
+        {downloadId: 'gfdgd_psr', time: getRandomNumber(500), urgent: true},
+        {downloadId: 'sdfdsf', time: getRandomNumber(500), urgent: false},
+        {downloadId: 'sdvsdv', time: getRandomNumber(500), urgent: true}
+    ]
 }
 
 export const generateSatellite = () => {
     return {
         lastUpdatedTime: new Date(),
-        LateProducts: [{downloadId: 'chocolate', time: getRandomNumber(500), urgent: true},
-            {downloadId: 'strawberry', time: getRandomNumber(500), urgent: true},
-            {downloadId: 'vanilla', time: getRandomNumber(500), urgent: true},
-            {downloadId: 'dsffs', time: getRandomNumber(500), urgent: false},
-            {downloadId: 'gfdgd', time: getRandomNumber(500), urgent: true},
-            {downloadId: 'sdfdsf', time: getRandomNumber(500), urgent: false},
-            {downloadId: 'sdvsdv', time: getRandomNumber(500), urgent: true}
-        ],
+        LateProducts: generateLateProducts(),
         Trend: [
             ...generateTrend()
         ],

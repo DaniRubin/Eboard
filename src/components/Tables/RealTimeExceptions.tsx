@@ -1,5 +1,8 @@
 import './RealTimeExceptions.css'
 import urgentIcon from '../../assets/UrgentIcon.svg'
+import colorIcon from '../../assets/ColorIcon.svg'
+import checkIcon from '../../assets/CheckIcon.svg'
+import styled from "styled-components";
 
 type Props = {
     downloads: {
@@ -9,24 +12,31 @@ type Props = {
     }[]
 };
 
+const ImgStyle = styled.img`
+  float: right;
+  margin-top: 3px;
+  margin-right: 3px;
+`
+
 
 const RealTimeExceptions = ({downloads}: Props) => (
     <div className="realtime-exceptions-flex-wrapper">
         <text className='realtime-exceptions-header'>real time exceptions</text>
-        <div className='downloads-card'>
+        {downloads.length > 0 ? <div className='downloads-card'>
             {
                 downloads.map((download) =>
                     <text key={download.downloadId} className="download-row">
                         <text className="download-id-text">
                             {download.downloadId}
-                            {download.urgent &&
-                            <img src={urgentIcon} style={{float: 'right', marginTop: '3px', marginRight: '5px'}}/>}
+                            {download.urgent && <ImgStyle src={urgentIcon}/>}
+                            {download.downloadId.toLowerCase().includes("_psr") && <ImgStyle src={colorIcon}/>}
                         </text>
                         <text
-                            className="download-time-text">{Math.floor(download.time / 60)}:{Math.floor(download.time % 60).toString().padStart(2, "0")}h </text>
+                            className="download-time-text">{Math.floor(download.time / 60)}:{Math.floor(download.time % 60).toString().padStart(2, "0")}h
+                        </text>
                     </text>)
             }
-        </div>
+        </div> : <img src={checkIcon} style={{height:'75px', marginTop: '25px'}}/>}
     </div>
 )
 
