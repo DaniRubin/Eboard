@@ -3,6 +3,7 @@ import ebaordLogo from '../../assets/EboardLogo.svg';
 import satLogo from '../../assets/SatelliteLogo.svg';
 import prodLogo from "../../assets/ProductionLogo.svg";
 import telecommandLogo from "../../assets/TelecomandIcon.svg";
+import kashahLogo from "../../assets/KashahIcon.svg";
 import {useNavigate} from "react-router-dom";
 
 const SideNavStyle = styled.div`
@@ -59,9 +60,12 @@ const SideNav = () => {
         <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Satellite"} isTitle={false}
                        isSelected={window.location.pathname.includes('satellite')}
                        onClick={() => navigate('/satellite/Sat1')}/>
-        <SideNavOption logo={telecommandLogo} logoText={"telecommandLogo"} OptionText={"Telecommand"} isTitle={false}
+        <SideNavOption logo={telecommandLogo} logoText={"telecommand logo"} OptionText={"Telecommand"} isTitle={false}
                        isSelected={window.location.pathname === '/telecommand'}
                        onClick={() => navigate('/telecommand')}/>
+        <SideNavOption logo={kashahLogo} logoText={"kashah logo"} OptionText={"Kashah"} isTitle={false}
+                       isSelected={window.location.pathname === '/kashah'}
+                       onClick={() => navigate('/kashah')}/>
     </SideNavStyle>
 
 }
