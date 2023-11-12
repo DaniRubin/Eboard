@@ -81,6 +81,10 @@ export const MockMainPageResponse = {
         },
         'TOTAL': {satelliteName: 'TOTAL', value: getRandomNumber(30) + 70, time: "-", limit: "-", type: "type1"},
     },
+    Reception: {
+        planned: 100,
+        received: getRandomNumber(50) + 50,
+    },
     LateProducts: [
         {downloadId: 'chocolate', time: getRandomNumber(1000), urgent: true},
         {downloadId: 'strawberry_psr', time: getRandomNumber(1000), urgent: true},

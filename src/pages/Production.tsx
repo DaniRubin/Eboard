@@ -13,6 +13,7 @@ import {useNavigate} from "react-router";
 import {MockMainPageResponse} from '../Mock'
 import {MOCKED} from "../App";
 import ActiveButton from "../components/ActiveButton";
+import ProgressBar from "../components/Graphs/ProgressBar/ProgressBar";
 
 const optionsSatFamily = [
     {value: 'All', label: 'All'},
@@ -79,6 +80,9 @@ const Production = () => {
 
                         </SatelliteContainer>
                         <OverviewContainer>
+                            <ProgressBar value={response.Reception.received} maxValue={response.Reception.planned}
+                                         headerText={'Received images'}/>
+
                             <TotalCircleGraph value={response.SatInfo['TOTAL']["value"]}/>
                             <RealTimeExceptions downloads={response.LateProducts}/>
                             <SectionContainer>
