@@ -84,9 +84,9 @@ export const MockMainPageResponse = {
     LateProducts: [
         {downloadId: 'chocolate', time: getRandomNumber(1000), urgent: true},
         {downloadId: 'strawberry_psr', time: getRandomNumber(1000), urgent: true},
-        {downloadId: 'vanilla', time: getRandomNumber(1000), urgent: true},
-        {downloadId: 'dsffs', time: getRandomNumber(1000), urgent: false},
-        {downloadId: 'gfdgd', time: getRandomNumber(1000), urgent: true},
+        {downloadId: 'ts_vanilla_00000', time: getRandomNumber(1000), urgent: true},
+        {downloadId: 'ts_dsffs', time: getRandomNumber(1000), urgent: false},
+        {downloadId: 'ts_gfdgd_00000', time: getRandomNumber(1000), urgent: true},
         {downloadId: 'sdfdsf_psr', time: getRandomNumber(1000), urgent: false},
         {downloadId: 'sdvsdv', time: getRandomNumber(1000), urgent: true},
         {downloadId: 'nhgnghf', time: getRandomNumber(1000), urgent: false},
@@ -117,11 +117,11 @@ const generateSatType = () => {
     }
 }
 const generateLateProducts = () => {
-    if (getRandomNumber(2) == 1) return []
+    if (getRandomNumber(3) == 1) return []
     return [{downloadId: 'chocolate', time: getRandomNumber(500), urgent: true},
-        {downloadId: 'strawberry', time: getRandomNumber(500), urgent: true},
-        {downloadId: 'vanilla_psr', time: getRandomNumber(500), urgent: true},
-        {downloadId: 'dsffs', time: getRandomNumber(500), urgent: false},
+        {downloadId: 'ts_strawberry_00000', time: getRandomNumber(500), urgent: true},
+        {downloadId: 'ts_vanilla_psr', time: getRandomNumber(500), urgent: true},
+        {downloadId: 'ts_dsffs_00000', time: getRandomNumber(500), urgent: false},
         {downloadId: 'gfdgd_psr', time: getRandomNumber(500), urgent: true},
         {downloadId: 'sdfdsf', time: getRandomNumber(500), urgent: false},
         {downloadId: 'sdvsdv', time: getRandomNumber(500), urgent: true}
