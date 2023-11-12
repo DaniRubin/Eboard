@@ -12,6 +12,7 @@ import logo from '../assets/ProductionLogoHeader.svg';
 import {useNavigate} from "react-router";
 import {MockMainPageResponse} from '../Mock'
 import {MOCKED} from "../App";
+import ActiveButton from "../components/ActiveButton";
 
 const optionsSatFamily = [
     {value: 'All', label: 'All'},
@@ -30,6 +31,7 @@ const optionsTimes = [
 const Production = () => {
     const navigate = useNavigate()
     const [satTypesToDisplay, setSatTypesToDisplay] = useState<string>(optionsSatFamily[0].value)
+    const [showEnabledOnly, setShowEnabledOnly] = useState<boolean>(false)
     const [response, setResponse] = useState<any>()
 
     const fetchData = useCallback(async () => {
@@ -59,6 +61,7 @@ const Production = () => {
                                        }}/>
                         <CostumeSelect options={optionsTimes} defaultValue={optionsTimes[0]} onChange={() => {
                         }}/>
+                        <ActiveButton enabled={showEnabledOnly} onClick={() => setShowEnabledOnly(!showEnabledOnly)}/>
                         <LastUpdated time={response.lastUpdatedTime}/>
                     </MainBoardUpperPanel>
 
@@ -66,11 +69,12 @@ const Production = () => {
                         <SatelliteContainer>
                             {Object.values(response.SatInfo).map((satInfo) => {
                                 if (satInfo.type === satTypesToDisplay || satTypesToDisplay == "All")
-                                    return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
-                                                                 value={satInfo.value}
-                                                                 time={satInfo.time}
-                                                                 limit={satInfo.limit}
-                                                                 onClick={() => navigate(`/satellite/${satInfo.satelliteName}`)}/>
+                                    if ((showEnabledOnly && satInfo.time !== '-') || !showEnabledOnly)
+                                        return <SatelliteCircleGraph satelliteName={satInfo.satelliteName}
+                                                                     value={satInfo.value}
+                                                                     time={satInfo.time}
+                                                                     limit={satInfo.limit}
+                                                                     onClick={() => navigate(`/satellite/${satInfo.satelliteName}`)}/>
                             })}
 
                         </SatelliteContainer>
@@ -98,6 +102,8 @@ const MainBoard = styled.div`
 `
 const MainBoardUpperPanel = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
 `
 const SatelliteContainer = styled.div`
   display: flex;
