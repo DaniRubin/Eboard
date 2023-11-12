@@ -145,7 +145,8 @@ export const generateSatellite = () => {
             percentage: getRandomNumber(30) + 70,
             cep90: getRandomTime(),
             productsInProgress: '10',
-            metadataProblems: 5
+            metadataProblems: 5,
+            satType: generateSatType(),
         },
         Histogram: [
             {seconds: 111, count: getRandomNumber(30)},
@@ -157,7 +158,6 @@ export const generateSatellite = () => {
             {seconds: 395, count: getRandomNumber(30)},
             {seconds: 403, count: getRandomNumber(30)},
         ],
-        SatType: generateSatType(),
         ServicesTime: {
             'kami': getRandomNumber(800),
             'sgu': getRandomNumber(800),

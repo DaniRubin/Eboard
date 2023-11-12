@@ -23,7 +23,7 @@ const ImgStyle = styled.img`
 
 const RealTimeExceptions = ({downloads}: Props) => (
     <div className="realtime-exceptions-flex-wrapper">
-        <text className='realtime-exceptions-header'>real time exceptions</text>
+        <text className='realtime-exceptions-header'>real time exceptions ({downloads.length})</text>
         {downloads.length > 0 ? <div className='downloads-card'>
             {
                 downloads.map((download) =>

@@ -55,7 +55,7 @@ const Satellite = () => {
                         <div style={{display: "flex", width: '100%', height: '260px', gap: '20px'}}>
                             <SatelliteCircleGraph satelliteName={response.Statistics.satelliteName}
                                                   value={Number(response.Statistics.percentage)}
-                                                  time={response.Statistics.averageTime}
+                                                  time={response.Statistics.cep90}
                                                   limit={response.Statistics.limitTime} onClick={() => {
                             }}/>
                             <RealTimeExceptions downloads={response.LateProducts}/>
@@ -66,7 +66,7 @@ const Satellite = () => {
                         <Histogram data={response.Histogram}/>
                     </OverviewContainer>
                 </SectionContainer>
-                <ServicesTime satType={response.SatType} data={response.ServicesTime}/>
+                <ServicesTime satType={response.Statistics.satType} data={response.ServicesTime}/>
             </MainBoard>
         </>
     )
