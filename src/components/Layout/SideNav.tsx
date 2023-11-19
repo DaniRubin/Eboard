@@ -4,6 +4,7 @@ import satLogo from '../../assets/SatelliteLogo.svg';
 import prodLogo from "../../assets/ProductionLogo.svg";
 import telecommandLogo from "../../assets/TelecomandIcon.svg";
 import kashahLogo from "../../assets/KashahIcon.svg";
+import esufLogo from "../../assets/EsufIcon.svg";
 import {useNavigate} from "react-router-dom";
 
 const SideNavStyle = styled.div`
@@ -66,6 +67,9 @@ const SideNav = () => {
         <SideNavOption logo={kashahLogo} logoText={"kashah logo"} OptionText={"Kashah"} isTitle={false}
                        isSelected={window.location.pathname === '/kashah'}
                        onClick={() => navigate('/kashah')}/>
+        <SideNavOption logo={esufLogo} logoText={"Esuf logo"} OptionText={"Esuf"} isTitle={false}
+                       isSelected={window.location.pathname === '/Esuf'}
+                       onClick={() => navigate('/Esuf')}/>
     </SideNavStyle>
 
 }

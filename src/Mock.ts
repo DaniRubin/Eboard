@@ -171,3 +171,17 @@ export const generateSatellite = () => {
         },
     }
 }
+
+const countriesList = ['country1', 'country2', 'country3', 'country4', 'country5', 'country6', 'country7', 'country8', 'country9']
+const createEsufCountriesList = () => {
+    return countriesList.map((country) => {
+        return {
+            country: country, totalAmount: getRandomNumber(10) + 60, cfgPlannedAmount: getRandomNumber(10),
+            plannedAmount: getRandomNumber(10) + 5, completedAmount: getRandomNumber(10) + 25,
+        }
+    })
+}
+
+export const GenerateMockEsufPageResponse =  () => {
+    return {data: createEsufCountriesList()}
+}

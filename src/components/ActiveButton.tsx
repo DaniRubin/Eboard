@@ -11,6 +11,9 @@ const ActiveButtonWrapper = styled.div<{ enabled: boolean }>((props) => {
       border-radius: 20px;
       background: ${props.enabled ? '#9ADBA0' : '#BBB'};
       box-shadow: ${props.enabled ? "0px 4px 4px 0px rgba(0, 0, 0, 0.15) inset" : "box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10)"};
+      -webkit-user-select: none; 
+      -ms-user-select: none;
+      user-select: none; 
       
     `
 })

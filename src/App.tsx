@@ -17,6 +17,7 @@ import Satellite from "./pages/Satellite";
 import NoPage from "./pages/NoPage";
 import Telecommand from "./pages/Telecomand";
 import Kashah from "./pages/Kashah";
+import Esuf from "./pages/Esuf";
 
 export const MOCKED = true
 
@@ -31,6 +32,7 @@ const App = () => {
                         <Route path="satellite/:satellite" element={<Satellite/>}/>
                         <Route path="telecommand" element={<Telecommand/>}/>
                         <Route path="kashah" element={<Kashah/>}/>
+                        <Route path="Esuf" element={<Esuf/>}/>
                         <Route path="*" element={<NoPage/>}/>
                     </Routes>
                 </BrowserRouter>
