@@ -22,6 +22,9 @@ const HalfPieChart = ({completedAmount, totalAmount, plannedAmount, cfgPlannedAm
                 <Percentage percentage={percentageCompleted}>{percentageCompleted}%</Percentage>
                 <Amount>{completedAmount}/{totalAmount}</Amount>
             </MetadataBlock>
+            <Graph data-name={`Non Taken ${100 - (percentageCompleted + cfgPlannedAmount + plannedAmount)}%`}
+                   color={"#FFC8CD"} percentage={100}>
+            </Graph>
             <Graph data-name={`Completed ${percentageCompleted}%`} color={"#00A10F"}
                    percentage={percentageCfgPlanned + percentageCompleted + percentagePlanned}>
             </Graph>
@@ -50,7 +53,7 @@ const HalfPieChartWrapper = styled.div`
   box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-wrap: wrap;
-  width: 30%;
+  width: 28%;
   min-width: 450px;
   justify-content: center;
   padding: 20px;
