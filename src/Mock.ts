@@ -182,6 +182,12 @@ const createEsufCountriesList = () => {
     })
 }
 
-export const GenerateMockEsufPageResponse =  () => {
-    return {data: createEsufCountriesList()}
+export const GenerateMockEsufPageResponse = () => {
+    return {
+        data: createEsufCountriesList(),
+        total: {
+            country: "TOTAL", totalAmount: getRandomNumber(10) + 60, cfgPlannedAmount: getRandomNumber(10),
+            plannedAmount: getRandomNumber(10) + 5, completedAmount: getRandomNumber(10) + 25
+        }
+    }
 }

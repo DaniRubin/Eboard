@@ -23,12 +23,12 @@ const HalfPieChart = ({completedAmount, totalAmount, plannedAmount, cfgPlannedAm
                 <Amount>{completedAmount}/{totalAmount}</Amount>
             </MetadataBlock>
             <Graph data-name={`Non Taken ${100 - (percentageCompleted + cfgPlannedAmount + plannedAmount)}%`}
-                   color={"#FFC8CD"} percentage={100}>
+                   color={"#FE7670"} percentage={100}>
             </Graph>
-            <Graph data-name={`Completed ${percentageCompleted}%`} color={"#00A10F"}
+            <Graph data-name={`Completed ${percentageCompleted}%`} color={"#09C31A"}
                    percentage={percentageCfgPlanned + percentageCompleted + percentagePlanned}>
             </Graph>
-            <Graph data-name={`CFG-Planned ${percentageCfgPlanned}%`} color={"#6AC672"}
+            <Graph data-name={`CFG-Planned ${percentageCfgPlanned}%`} color={"#69CA72"}
                    percentage={percentageCfgPlanned + percentagePlanned}>
             </Graph>
             <Graph data-name={`Planned ${percentagePlanned}%`} color={"#9ADBA0"} percentage={percentagePlanned}>
@@ -44,7 +44,7 @@ const HeaderWrapper = styled.div`
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 10px
+  flex-direction: column;
 `
 
 const HalfPieChartWrapper = styled.div`
@@ -56,7 +56,7 @@ const HalfPieChartWrapper = styled.div`
   width: 28%;
   min-width: 450px;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   gap: 10px;
   align-items: center;
   flex-direction: column;
@@ -170,12 +170,9 @@ const Percentage = styled.div<{ percentage: number }>((props) => {
 })
 
 const Amount = styled.div`
-  color: var(--grey, #8E8E8E);
-  text-align: center;
+  color: #8E8E8E;
   font-size: 16px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 `
 
 const MetadataBlock = styled.div`
