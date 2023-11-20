@@ -5,7 +5,9 @@ import prodLogo from "../../assets/ProductionLogo.svg";
 import telecommandLogo from "../../assets/TelecomandIcon.svg";
 import kashahLogo from "../../assets/KashahIcon.svg";
 import esufLogo from "../../assets/EsufIcon.svg";
+import potentialLogo from "../../assets/potentialIcon.svg";
 import infoLogo from "../../assets/InfoIcon.svg";
+import gizraLogo from '../../assets/gizraIcon.svg'
 import {useNavigate} from "react-router-dom";
 
 const SideNavStyle = styled.div`
@@ -23,15 +25,15 @@ const SideNavStyle = styled.div`
 `
 const SideNavOptionStyle = styled.div<{ isTitle: boolean, isSelected: boolean, isLast: boolean }>((props) => {
     return `
-    color: var(--light-grey, #E8E8E8);
+      color: var(--light-grey, #E8E8E8);
       text-align: center;
       font-family: Poppins;
       font-size: 16px;
       font-style: normal;
       font-weight: 600;
       line-height: normal;
-      margin: ${props.isTitle ? '12px auto' : '0px'};;
-      padding: 20px;
+      margin: ${props.isTitle ? '12px auto' : '0px'};
+      padding: 10px 20px;
       cursor: ${props.isTitle ? 'arrow' : 'pointer'};
       background-color: ${props.isSelected ? '#515151' : '#3A3A3A'};
       margin-top: ${props.isLast ? 'auto' : 'null'};
@@ -39,13 +41,15 @@ const SideNavOptionStyle = styled.div<{ isTitle: boolean, isSelected: boolean, i
         background-color: ${props.isTitle ? '#3A3A3A' : '#BBB'};
       }
       div {
-        margin-top: 8px;
+        margin-top: 4px;
+        font-size: 14px;
       };
 `
 })
 
 const NavImage = styled.img<{ isTitle: boolean }>((props) => {
     return `width: ${props.isTitle ? '70px' : '35px'};
+    height: ${props.isTitle ? '70px' : '35px'};
     margin: auto;
     flex-shrink:0;`
 });
@@ -61,15 +65,26 @@ const SideNav = () => {
         <SideNavOption logo={satLogo} logoText={"satLogo"} OptionText={"Satellite"}
                        isSelected={window.location.pathname.includes('satellite')}
                        onClick={() => navigate('/satellite/Sat1')}/>
+        <SideNavOption logo={esufLogo} logoText={"Esuf logo"} OptionText={"Esuf"}
+                       isSelected={window.location.pathname === '/Esuf'} onClick={() => navigate('/Esuf')}/>
+        <SideNavOption logo={kashahLogo} logoText={"kashah logo"} OptionText={"Kashah dist"}
+                       isSelected={window.location.pathname === '/kashah/distribution'} onClick={() => navigate('/kashah/distribution')}/>
+        <SideNavOption logo={kashahLogo} logoText={"kashah In logo"} OptionText={"Kashah recp"}
+                       isSelected={window.location.pathname === '/kashah/reception'} onClick={() => navigate('/kashah/reception')}/>
+
+        <SideNavOption logo={gizraLogo} logoText={"Gizra logo"} OptionText={"Gizra"}
+                       isSelected={window.location.pathname === '/gizra'} onClick={() => navigate('/gizra')}/>
+        <SideNavOption logo={potentialLogo} logoText={"Potential logo"} OptionText={"Potential"}
+                       isSelected={window.location.pathname === '/potential'} onClick={() => navigate('/potential')}/>
         <SideNavOption logo={telecommandLogo} logoText={"telecommand logo"} OptionText={"Telecommand"}
                        isSelected={window.location.pathname === '/telecommand'}
                        onClick={() => navigate('/telecommand')}/>
-        <SideNavOption logo={kashahLogo} logoText={"kashah logo"} OptionText={"Kashah"}
-                       isSelected={window.location.pathname === '/kashah'} onClick={() => navigate('/kashah')}/>
-        <SideNavOption logo={esufLogo} logoText={"Esuf logo"} OptionText={"Esuf"}
-                       isSelected={window.location.pathname === '/Esuf'} onClick={() => navigate('/Esuf')}/>
+
+
+
         <SideNavOption logo={infoLogo} logoText={"Info logo"} OptionText={"About us"} isLast={true}
                        isSelected={window.location.pathname === '/Info'} onClick={() => null}/>
+
     </SideNavStyle>
 
 }
@@ -87,7 +102,7 @@ type SideNavOptionProps = {
 const SideNavOption = (props: SideNavOptionProps) => (
     <SideNavOptionStyle isTitle={props.isTitle} isLast={props.isLast} isSelected={props.isSelected}
                         onClick={props.onClick}>
-        <NavImage src={props.logo} alt={props.logoText} isTitle={props.isTitle}/>
+        <NavImage src={props.logo} alt={props.logoText} isTitle={props.isTitle} />
         <div>{props.OptionText}</div>
     </SideNavOptionStyle>
 )

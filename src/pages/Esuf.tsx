@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Header from "../components/Layout/Header";
 import logo from '../assets/EsufIconHeader.svg';
 import HalfPieChart from "../components/Graphs/HalfPieChart/HalfPieChart";
-import LastUpdated from "../components/LastUpdated";
+import LastUpdated from "../components/General/LastUpdated";
 import {useCallback, useEffect, useState} from "react";
 import {MOCKED} from "../App";
 import {GenerateMockEsufPageResponse} from "../Mock";

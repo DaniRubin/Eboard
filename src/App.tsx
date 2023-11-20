@@ -16,8 +16,11 @@ import Production from "./pages/Production";
 import Satellite from "./pages/Satellite";
 import NoPage from "./pages/NoPage";
 import Telecommand from "./pages/Telecomand";
-import Kashah from "./pages/Kashah";
+import KashahDistribution from "./pages/KashahDistribution";
 import Esuf from "./pages/Esuf";
+import KashahReception from "./pages/KashahReception";
+import Potential from "./pages/Potential";
+import Gizra from "./pages/Gizra";
 
 export const MOCKED = true
 
@@ -31,8 +34,11 @@ const App = () => {
                         <Route index element={<Production/>}/>
                         <Route path="satellite/:satellite" element={<Satellite/>}/>
                         <Route path="telecommand" element={<Telecommand/>}/>
-                        <Route path="kashah" element={<Kashah/>}/>
+                        <Route path="kashah/distribution" element={<KashahDistribution/>}/>
+                        <Route path="kashah/reception" element={<KashahReception/>}/>
                         <Route path="Esuf" element={<Esuf/>}/>
+                        <Route path="potential" element={<Potential/>}/>
+                        <Route path="gizra" element={<Gizra/>}/>
                         <Route path="*" element={<NoPage/>}/>
                     </Routes>
                 </BrowserRouter>

@@ -3,16 +3,16 @@ import {useCallback, useEffect, useState} from 'react';
 import styled from "styled-components";
 import TotalCircleGraph from '../components/Graphs/CircleGraph/TotalCircleGraph'
 import SatelliteCircleGraph from '../components/Graphs/CircleGraph/SatelliteCircleGraph'
-import CostumeSelect from "../components/CostumeSelect";
+import CostumeSelect from "../components/General/CostumeSelect";
 import RealTimeExceptions from "../components/Tables/RealTimeExceptions";
-import LastUpdated from "../components/LastUpdated";
-import InfoBox from "../components/InfoBox";
+import LastUpdated from "../components/General/LastUpdated";
+import InfoBox from "../components/General/InfoBox";
 import Header from "../components/Layout/Header";
 import logo from '../assets/ProductionLogoHeader.svg';
 import {useNavigate} from "react-router";
 import {MockMainPageResponse} from '../Mock'
 import {MOCKED} from "../App";
-import ActiveButton from "../components/ActiveButton";
+import ActiveButton from "../components/General/ActiveButton";
 import ProgressBar from "../components/Graphs/ProgressBar/ProgressBar";
 
 const optionsSatFamily = [

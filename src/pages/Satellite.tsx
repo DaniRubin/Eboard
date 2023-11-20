@@ -1,14 +1,14 @@
 import logo from '../assets/SatelliteLogoHeader.svg';
 import Header from "../components/Layout/Header";
-import CostumeSelect from "../components/CostumeSelect";
-import LastUpdated from "../components/LastUpdated";
+import CostumeSelect from "../components/General/CostumeSelect";
+import LastUpdated from "../components/General/LastUpdated";
 import styled from "styled-components";
 import TrendGraph from "../components/Graphs/Trend/TrendGraph";
 import SatelliteCircleGraph from "../components/Graphs/CircleGraph/SatelliteCircleGraph";
 import RealTimeExceptions from "../components/Tables/RealTimeExceptions";
 import SatelliteProfile from "../components/Tables/SatelliteProfile";
 import Histogram from "../components/Graphs/Histogram/Histogram";
-import ServicesTime from "../components/ServicesTime";
+import ServicesTime from "../components/General/ServicesTime";
 import {useParams, useNavigate} from 'react-router';
 import {useEffect, useState} from "react";
 import {generateSatellite} from "../Mock";

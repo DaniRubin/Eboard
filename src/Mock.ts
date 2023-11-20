@@ -172,7 +172,7 @@ export const generateSatellite = () => {
     }
 }
 
-const countriesList = ['country1', 'country2', 'country3', 'country4', 'country5', 'country6', 'country7', 'country8', 'country9']
+const countriesList = ['country1', 'country2', 'country3', 'country4', 'country5', 'country6', 'country7', 'country8', 'country9', 'country10', 'country11']
 const createEsufCountriesList = () => {
     return countriesList.map((country) => {
         return {

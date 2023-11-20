@@ -1,13 +1,14 @@
 import {useCallback, useEffect, useState} from 'react';
 
 import styled from "styled-components";
-import CostumeSelect from "../components/CostumeSelect";
-import LastUpdated from "../components/LastUpdated";
+import CostumeSelect from "../components/General/CostumeSelect";
+import LastUpdated from "../components/General/LastUpdated";
 import Header from "../components/Layout/Header";
 import logo from '../assets/KashahIconHeader.svg';
 import {useNavigate} from "react-router";
 import {MockMainPageResponse} from '../Mock'
 import {MOCKED} from "../App";
+import InProgress from "../components/General/WorkInProgress";
 
 const optionsTimes = [
     {value: '24 hours', label: '24 hours'},
@@ -17,7 +18,7 @@ const optionsTimes = [
     {value: '1 week', label: '1 week'},
 ];
 
-const Kashah = () => {
+const KashahReception = () => {
     const navigate = useNavigate()
     const [response, setResponse] = useState<any>()
 
@@ -39,7 +40,7 @@ const Kashah = () => {
     return (
         <>{
             response ? <>
-                <Header text={"Kashah Dashboard"} logo={logo}/>
+                <Header text={"Kashah Reception Dashboard"} logo={logo}/>
                 <MainBoard>
                     <MainBoardUpperPanel>
                         <CostumeSelect options={optionsTimes} defaultValue={optionsTimes[0]} onChange={() => {
@@ -48,7 +49,7 @@ const Kashah = () => {
                     </MainBoardUpperPanel>
 
                     <SectionContainer>
-
+                        <InProgress/>
                     </SectionContainer>
                 </MainBoard>
             </> : null
@@ -56,7 +57,7 @@ const Kashah = () => {
     )
 }
 
-export default Kashah
+export default KashahReception
 
 const MainBoard = styled.div`
   margin: 16px 35px;
