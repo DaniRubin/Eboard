@@ -65,7 +65,7 @@ const MultiGraph = styled.div`
   width: 400px;
   height: 200px;
   position: relative;
-  color: black;
+  color: white;
   font-size: 22px;
   font-weight: 600;
   display: flex;

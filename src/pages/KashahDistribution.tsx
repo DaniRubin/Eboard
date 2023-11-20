@@ -4,7 +4,7 @@ import styled from "styled-components";
 import CostumeSelect from "../components/General/CostumeSelect";
 import LastUpdated from "../components/General/LastUpdated";
 import Header from "../components/Layout/Header";
-import logo from '../assets/KashahIconHeader.svg';
+import logo from '../assets/kashahDistributionIconHeader.svg';
 import {useNavigate} from "react-router";
 import {MockMainPageResponse} from '../Mock'
 import {MOCKED} from "../App";

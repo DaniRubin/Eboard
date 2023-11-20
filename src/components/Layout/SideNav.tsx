@@ -3,7 +3,8 @@ import ebaordLogo from '../../assets/EboardLogo.svg';
 import satLogo from '../../assets/SatelliteLogo.svg';
 import prodLogo from "../../assets/ProductionLogo.svg";
 import telecommandLogo from "../../assets/TelecomandIcon.svg";
-import kashahLogo from "../../assets/KashahIcon.svg";
+import kashahDistributionLogo from "../../assets/kashahDistributionIcon.svg";
+import kashahReceptionLogo from "../../assets/kashahReceptionIcon.svg";
 import esufLogo from "../../assets/EsufIcon.svg";
 import potentialLogo from "../../assets/potentialIcon.svg";
 import infoLogo from "../../assets/InfoIcon.svg";
@@ -67,9 +68,9 @@ const SideNav = () => {
                        onClick={() => navigate('/satellite/Sat1')}/>
         <SideNavOption logo={esufLogo} logoText={"Esuf logo"} OptionText={"Esuf"}
                        isSelected={window.location.pathname === '/Esuf'} onClick={() => navigate('/Esuf')}/>
-        <SideNavOption logo={kashahLogo} logoText={"kashah logo"} OptionText={"Kashah dist"}
+        <SideNavOption logo={kashahDistributionLogo} logoText={"kashah logo"} OptionText={"Kashah dist"}
                        isSelected={window.location.pathname === '/kashah/distribution'} onClick={() => navigate('/kashah/distribution')}/>
-        <SideNavOption logo={kashahLogo} logoText={"kashah In logo"} OptionText={"Kashah recp"}
+        <SideNavOption logo={kashahReceptionLogo} logoText={"kashah In logo"} OptionText={"Kashah recp"}
                        isSelected={window.location.pathname === '/kashah/reception'} onClick={() => navigate('/kashah/reception')}/>
 
         <SideNavOption logo={gizraLogo} logoText={"Gizra logo"} OptionText={"Gizra"}
