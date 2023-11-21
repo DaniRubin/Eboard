@@ -161,14 +161,14 @@ const FilterSection = styled.div`
 `
 const FilterButton = styled.div`
   display: flex;
-  width: 80%;
+  width: 60%;
   height: 30px;
   padding: 6px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -215,6 +215,8 @@ const MainSection = styled.div`
   justify-content: flex-start;
   margin-left: 7px;
   align-content: flex-start;
+  height: 85vh;
+  overflow-y: scroll;
 `
 const MainBoard = styled.div`
   margin: 16px 35px;
