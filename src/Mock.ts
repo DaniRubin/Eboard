@@ -191,3 +191,54 @@ export const GenerateMockEsufPageResponse = () => {
         }
     }
 }
+
+export const GenerateMockKashahReceptionResponse = () => {
+    return {
+        lastUpdatedTime: new Date(),
+        data: {
+            type1: {
+                distribution: {
+                    country1: getRandomNumber(100),
+                    country2: getRandomNumber(100),
+                    country3: getRandomNumber(100),
+                    country4: getRandomNumber(100),
+                    country5: getRandomNumber(100),
+                    country6: getRandomNumber(100),
+                    country7: getRandomNumber(100),
+                    country8: getRandomNumber(100),
+                    country9: getRandomNumber(100),
+                    country10: getRandomNumber(100),
+                    country11: getRandomNumber(100),
+                    country12: getRandomNumber(100),
+                    country13: getRandomNumber(100),
+                    country14: getRandomNumber(100),
+                    country15: getRandomNumber(100),
+                    country16: getRandomNumber(100),
+                    country17: getRandomNumber(100),
+                    country18: getRandomNumber(100),
+                    country19: getRandomNumber(100),
+                }, count: getRandomNumber(700)
+            },
+            type2: {
+                distribution: {
+                    country1: getRandomNumber(100),
+                    country2: getRandomNumber(100),
+                    country3: getRandomNumber(100),
+                    country4: getRandomNumber(100),
+                    country5: getRandomNumber(100),
+                    country6: getRandomNumber(100)
+                }, count: getRandomNumber(700)
+            },
+            type3: {
+                distribution: {
+                    country1: getRandomNumber(100),
+                    country2: getRandomNumber(100),
+                    country3: getRandomNumber(100),
+                    country4: getRandomNumber(100),
+                    country5: getRandomNumber(100),
+                    country6: getRandomNumber(100)
+                }, count: getRandomNumber(700)
+            },
+        },
+    }
+}
