@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import Header from "../components/Layout/Header";
-import logo from '../assets/EsufIconHeader.svg';
+import logo from '../assets/customerIconHeader.svg';
 import HalfPieChart from "../components/Graphs/HalfPieChart/HalfPieChart";
 import LastUpdated from "../components/General/LastUpdated";
 import {useCallback, useEffect, useState} from "react";
 import {MOCKED} from "../App";
-import {GenerateMockEsufPageResponse} from "../Mock";
+import {GenerateMockCustomerPageResponse, GenerateMockEsufPageResponse} from "../Mock";
 import ProgressBarVertical from "../components/Graphs/ProgressBarVertical/ProgressBarVertical";
 
 const satellitesList = ['sat1', 'sat2', 'sat3', 'sat4', 'sat5', 'sat6', 'sat7']
 
-const Esuf = () => {
+const Customers = () => {
     const [response, setResponse] = useState<any>()
     const [minPriority, setMinPriority] = useState<number>(1)
     const [maxPriority, setMaxPriority] = useState<number>(20)
@@ -33,7 +33,7 @@ const Esuf = () => {
     }
     const fetchData = useCallback(async () => {
         try {
-            if (MOCKED) return setResponse(GenerateMockEsufPageResponse())
+            if (MOCKED) return setResponse(GenerateMockCustomerPageResponse())
             let res = await fetch("http://...") // Add here the min and the max values
             res = await res.json()
             setResponse(res)
@@ -48,13 +48,14 @@ const Esuf = () => {
 
     const colors = {
         notTaken: "#FE7670",
-        completed: "#09C31A",
-        cfgPlanned: "#9ADBA0",
-        planned: "#F90",
+        completed: "#00f",
+        cfgPlanned: "#c6e2ff",
+        planned: "#66cdaa",
     }
+
     return (
         <>
-            <Header text={"Esuf Dashboard"} logo={logo}/>
+            <Header text={"Customers Dashboard"} logo={logo}/>
             <MainBoard>
                 <MainBoardUpperPanel>
                     <LastUpdated time={new Date()}/>
@@ -84,19 +85,17 @@ const Esuf = () => {
                         </FilterSection>
                         <FilterSection>
                             {response && <ProgressBarVertical headerText={"Total"}
-                                                              completedAmount={response.total.completedAmount || 0}
-                                                              totalAmount={response.total.totalAmount || 0}
-                                                              plannedAmount={response.total.plannedAmount || 0}
-                                                              cfgPlannedAmount={response.total.cfgPlannedAmount || 0}/>}
+                                                              completedAmount={response.total.completedAmount||0}
+                                                              totalAmount={response.total.totalAmount||0}
+                                                              plannedAmount={response.total.plannedAmount||0}
+                                                              cfgPlannedAmount={response.total.cfgPlannedAmount||0}/>}
                         </FilterSection>
                     </div>
                     <MainSection>
                         {response && response.data.map(info => {
-                            return <HalfPieChart showIcon={true} country={info.country}
-                                                 colors={colors}
-                                                 completedAmount={info.completedAmount}
+                            return <HalfPieChart showIcon={false} country={info.customer} completedAmount={info.completedAmount}
                                                  totalAmount={info.totalAmount} plannedAmount={info.plannedAmount}
-                                                 cfgPlannedAmount={info.cfgPlannedAmount}/>
+                                                 cfgPlannedAmount={info.cfgPlannedAmount} colors={colors}/>
                         })}
                     </MainSection>
                 </div>
@@ -116,7 +115,7 @@ const SatButton = ({enabled, onClick, satName}: PropsSatButton) => (
     </SatButtonWrapper>
 )
 
-export default Esuf
+export default Customers
 
 
 const SatButtonWrapper = styled.div <{ enabled: boolean }>((props) => {

@@ -181,12 +181,31 @@ const createEsufCountriesList = () => {
         }
     })
 }
+const customersList = ['customer1','customer2','customer3','customer4','customer5','customer6','customer7','customer8','customer9']
+const createCustomersList = () => {
+    return customersList.map((country) => {
+        return {
+            customer: country, totalAmount: getRandomNumber(10) + 60, cfgPlannedAmount: getRandomNumber(10),
+            plannedAmount: getRandomNumber(10) + 5, completedAmount: getRandomNumber(10) + 25,
+        }
+    })
+}
 
 export const GenerateMockEsufPageResponse = () => {
     return {
         data: createEsufCountriesList(),
         total: {
             country: "TOTAL", totalAmount: getRandomNumber(10) + 60, cfgPlannedAmount: getRandomNumber(10),
+            plannedAmount: getRandomNumber(10) + 5, completedAmount: getRandomNumber(10) + 25
+        }
+    }
+}
+
+export const GenerateMockCustomerPageResponse = () => {
+    return {
+        data: createCustomersList(),
+        total: {
+            customer: "TOTAL", totalAmount: getRandomNumber(10) + 60, cfgPlannedAmount: getRandomNumber(10),
             plannedAmount: getRandomNumber(10) + 5, completedAmount: getRandomNumber(10) + 25
         }
     }

@@ -21,6 +21,7 @@ import Esuf from "./pages/Esuf";
 import KashahReception from "./pages/KashahReception";
 import Potential from "./pages/Potential";
 import Gizra from "./pages/Gizra";
+import Customers from "./pages/Customers";
 
 export const MOCKED = true
 
@@ -37,6 +38,7 @@ const App = () => {
                         <Route path="kashah/distribution" element={<KashahDistribution/>}/>
                         <Route path="kashah/reception" element={<KashahReception/>}/>
                         <Route path="Esuf" element={<Esuf/>}/>
+                        <Route path="customers" element={<Customers/>}/>
                         <Route path="potential" element={<Potential/>}/>
                         <Route path="gizra" element={<Gizra/>}/>
                         <Route path="*" element={<NoPage/>}/>

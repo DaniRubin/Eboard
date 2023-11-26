@@ -6,16 +6,23 @@ type Props = {
     totalAmount: number,
     plannedAmount: number,
     cfgPlannedAmount: number,
-    country: string
+    country: string,
+    showIcon: boolean,
+    colors: {
+        completed: string,
+        notTaken: string,
+        planned: string,
+        cfgPlanned: string,
+    }
 }
 
-const HalfPieChart = ({completedAmount, totalAmount, plannedAmount, cfgPlannedAmount, country}: Props) => {
+const HalfPieChart = ({completedAmount, totalAmount, plannedAmount, cfgPlannedAmount, country, showIcon, colors}: Props) => {
     const percentageCompleted = Math.floor((completedAmount / totalAmount) * 100)
     const percentagePlanned = Math.floor((plannedAmount / totalAmount) * 100)
     const percentageCfgPlanned = Math.floor((cfgPlannedAmount / totalAmount) * 100)
 
     return <HalfPieChartWrapper>
-        <HeaderWrapper><img src={logo} height={"20px"}/>{country}</HeaderWrapper>
+        <HeaderWrapper>{showIcon && <img src={logo} height={"20px"}/>}{country}</HeaderWrapper>
 
         <MultiGraph>
             <MetadataBlock>
@@ -23,15 +30,15 @@ const HalfPieChart = ({completedAmount, totalAmount, plannedAmount, cfgPlannedAm
                 <Amount>{completedAmount}/{totalAmount}</Amount>
             </MetadataBlock>
             <Graph data-name={`Non Taken ${100 - (percentageCompleted + cfgPlannedAmount + plannedAmount)}%`}
-                   color={"#FE7670"} percentage={100}>
+                   color={colors.notTaken} percentage={100}>
             </Graph>
-            <Graph data-name={`Completed ${percentageCompleted}%`} color={"#09C31A"}
+            <Graph data-name={`Completed ${percentageCompleted}%`} color={colors.completed}
                    percentage={percentageCfgPlanned + percentageCompleted + percentagePlanned}>
             </Graph>
-            <Graph data-name={`CFG-Planned ${percentageCfgPlanned}%`} color={"#69CA72"}
+            <Graph data-name={`CFG-Planned ${percentageCfgPlanned}%`} color={colors.cfgPlanned}
                    percentage={percentageCfgPlanned + percentagePlanned}>
             </Graph>
-            <Graph data-name={`Planned ${percentagePlanned}%`} color={"#9ADBA0"} percentage={percentagePlanned}>
+            <Graph data-name={`Planned ${percentagePlanned}%`} color={colors.planned} percentage={percentagePlanned}>
             </Graph>
         </MultiGraph>
     </HalfPieChartWrapper>
