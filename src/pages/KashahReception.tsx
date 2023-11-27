@@ -13,10 +13,10 @@ import PieChartComponent from "../components/Graphs/PieChart/PieChart";
 
 const optionsTimes = [
     {value: '24 hours', label: '24 hours'},
-    {value: '2 hours', label: '2 hours'},
-    {value: '12 hours', label: '12 hours'},
-    {value: '2 days', label: '2 days'},
-    {value: '1 week', label: '1 week'},
+    // {value: '2 hours', label: '2 hours'},
+    // {value: '12 hours', label: '12 hours'},
+    // {value: '2 days', label: '2 days'},
+    // {value: '1 week', label: '1 week'},
 ];
 export const INTERESTING_COUNTRIES = ['country1', 'country2', 'country3', 'country4', 'country5']
 

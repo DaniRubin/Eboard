@@ -46,11 +46,12 @@ const Customers = () => {
         fetchData()
     }, [])
 
+
     const colors = {
         notTaken: "#FE7670",
-        completed: "#00f",
-        cfgPlanned: "#c6e2ff",
-        planned: "#66cdaa",
+        completed: "#09C31A",
+        cfgPlanned: "#9ADBA0",
+        planned: "#F90",
     }
 
     return (
