@@ -7,6 +7,10 @@ const LastUpdatedWrapper = styled.div`
   color: var(--text-grey, #BBB);
   display: flex;
   align-items: center;
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 5px 15px;
+  height: 35px;
   div {
     display: inline-block;
   }

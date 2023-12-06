@@ -20,11 +20,8 @@ const ActiveButtonWrapper = styled.div<{ enabled: boolean }>((props) => {
 const ActiveButtonText = styled.div`
   color: #F8F8F8;
   text-align: center;
-  font-family: Poppins;
   font-size: 14px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 `
 
 

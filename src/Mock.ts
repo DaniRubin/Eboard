@@ -4,7 +4,9 @@ const getRandomNumber = (max) => {
 const getRandomTime = () => {
     return `${Math.floor(Math.random() * 60)}:${Math.floor((Math.random() * 50) + 10)}`
 }
-
+const getRandomBoolean = () => {
+    return Math.floor(Math.random() * 2) === 1
+}
 export const MockMainPageResponse = {
     SatInfo: {
         'Sat1': {
@@ -181,7 +183,7 @@ const createEsufCountriesList = () => {
         }
     })
 }
-const customersList = ['customer1','customer2','customer3','customer4','customer5','customer6','customer7','customer8','customer9']
+const customersList = ['customer1', 'customer2', 'customer3', 'customer4', 'customer5', 'customer6', 'customer7', 'customer8', 'customer9']
 const createCustomersList = () => {
     return customersList.map((country) => {
         return {
@@ -258,6 +260,99 @@ export const GenerateMockKashahReceptionResponse = () => {
                     country6: getRandomNumber(100)
                 }, count: getRandomNumber(700)
             },
+        },
+    }
+}
+
+const satTypesForPassboard = ['Sat1', 'Sat2', 'Sat3', 'Sat1', 'Sat5', 'Sat3', 'Sat7', 'Sat5', 'Sat2', 'Sat9', 'Sat8', 'Sat2', 'Sat3', 'Sat7', 'Sat5', 'Sat2', 'Sat9', 'Sat8', 'Sat2']
+
+const generateGizraPassBoard = () => {
+    const data = []
+    satTypesForPassboard.map((sat: string) => {
+        data.push({
+            name: sat,
+            time: `${getRandomTime()}-${getRandomTime()}`,
+            dayTime: getRandomBoolean(),
+            eo: getRandomBoolean(),
+        })
+    })
+    return data
+}
+export const GenerateMockGizraResponse = (country) => {
+    return {
+        lastUpdatedTime: new Date(),
+        country: country,
+        passboard: generateGizraPassBoard(),
+        totalCollection: [
+            {
+                name: 'type1',
+                value: getRandomNumber(500)
+            },
+            {
+                name: 'type2',
+                value: getRandomNumber(500)
+            },
+            {
+                name: 'type3',
+                value: getRandomNumber(500)
+            },
+            {
+                name: 'type4',
+                value: getRandomNumber(500)
+            },
+        ],
+        totalKms: [
+            {
+                name: 'type1',
+                value: getRandomNumber(200)
+            },
+            {
+                name: 'type2',
+                value: getRandomNumber(200)
+            },
+            {
+                name: 'type3',
+                value: getRandomNumber(200)
+            },
+            {
+                name: 'type4',
+                value: getRandomNumber(200)
+            },
+        ]
+    }
+}
+
+const generateSatData = () => {
+    return {
+        delayed: {
+            Success: getRandomNumber(500),
+            Failed: getRandomNumber(100),
+            Future: getRandomNumber(100),
+            Unknown: getRandomNumber(100),
+        },
+        immediate: {
+            Success: getRandomNumber(500),
+            Failed: getRandomNumber(100),
+            Future: getRandomNumber(100),
+            Unknown: getRandomNumber(100),
+        },
+        replacement: {
+            Success: getRandomNumber(500),
+            Failed: getRandomNumber(100),
+            Future: getRandomNumber(100),
+            Unknown: getRandomNumber(100),
+        },
+    }
+}
+export const GenerateMockTelecommandResponse = () => {
+    return {
+        lastUpdatedTime: new Date(),
+        data: {
+            sat1: generateSatData(),
+            sat2: generateSatData(),
+            sat3: generateSatData(),
+            sat4: generateSatData(),
+            sat5: generateSatData(),
         },
     }
 }

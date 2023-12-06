@@ -7,19 +7,20 @@ type Props = {
         value: number,
     }[],
     title: string,
-    total: number
+    total: number,
+    width?: number,
+    height?: number,
+    colors?: string[],
 }
-const PieChartComponent = ({data, title, total}: Props) => {
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF', '#ff80ed', '#00ffff', '#ffd700', '#d3ffce']; // Add more colors as needed
-
+let COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF', '#ff80ed', '#00ffff', '#ffd700', '#d3ffce']; // Add more colors as needed
+const PieChartComponent = ({data, title, total, height, width, colors}: Props) => {
+    let colorsToUse = colors || COLORS
     return (
         <PieChartWrapper>
             <HeaderWrapper>{title}</HeaderWrapper>
-            <PieChart width={500} height={400}>
+            <PieChart width={width ? width : 500} height={height ? height : 400}>
                 <Pie
                     data={data}
-                    cx={250}
-                    cy={150}
                     innerRadius={0}
                     fill="#8884d8"
                     paddingAngle={0}
@@ -27,7 +28,7 @@ const PieChartComponent = ({data, title, total}: Props) => {
                     isAnimationActive={true} // Disable animation for an instant render
                 >
                     {data.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
+                        <Cell key={`cell-${index}`} fill={colorsToUse[index % colorsToUse.length]}/>
                     ))}
                 </Pie>
                 <Tooltip formatter={(label) => `${label}/${total} :  ${Math.floor((label / total) * 100)}%`}/>
@@ -43,7 +44,7 @@ const PieChartWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  //width: 100%;
+  width: 100%;
   flex-direction: column;
   border-radius: 15px;
   background: var(--white, #F8F8F8);
