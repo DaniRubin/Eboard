@@ -322,6 +322,36 @@ export const GenerateMockGizraResponse = (country) => {
     }
 }
 
+const countries = ['Iran', 'Syria', 'Egypt', 'Gaza', 'Lebanon', 'Iraq', 'Sudan', 'Yemen']
+const GenerateCountryPotential = () => {
+    const response = {}
+    countries.forEach(country => {
+        response[country] = {
+            sar: {
+                countOfPasses: getRandomNumber(10),
+                firstTime: getRandomTime(),
+                lastTime: getRandomTime(),
+            },
+            eo_night: {
+                countOfPasses: getRandomNumber(10),
+                firstTime: getRandomTime(),
+                lastTime: getRandomTime(),
+            },
+            eo_day: {
+                countOfPasses: getRandomNumber(10),
+                firstTime: getRandomTime(),
+                lastTime: getRandomTime(),
+            },
+        }
+    })
+    return response
+}
+export const GenerateMockPotentialPageResponse = () => {
+    return {
+        lastUpdatedTime: Date.now(),
+        data: GenerateCountryPotential(),
+    }
+}
 const generateSatData = () => {
     return {
         delayed: {
